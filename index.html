@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samavik - Software Products & Development</title>
+  <meta name="description" content="Samavik builds software products for the skydiving and adventure sports industry. Creators of Cutaway, the complete video workflow platform for dropzones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #09090b;
+      --bg-card: #18181b;
+      --bg-elevated: #27272a;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #06b6d4;
+      --accent-hover: #22d3ee;
+      --success: #22c55e;
+      --gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(9, 9, 11, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .logo {
+      font-size: 20px; font-weight: 700; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    .logo-icon {
+      width: 32px; height: 32px; background: var(--gradient);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-weight: 800; font-size: 14px;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 14px;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--text); color: var(--bg-dark);
+      padding: 10px 20px; border-radius: 8px; text-decoration: none;
+      font-weight: 600; font-size: 14px; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%); width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 64px); font-weight: 800;
+      line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .hero h1 .gradient {
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px; color: var(--text-muted);
+      max-width: 600px; margin: 0 auto 40px;
+    }
+    .hero-buttons {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gradient); color: white;
+      padding: 14px 28px; border-radius: 10px; text-decoration: none;
+      font-weight: 600; font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4);
+    }
+    .btn-secondary {
+      background: var(--bg-card); color: var(--text);
+      padding: 14px 28px; border-radius: 10px; text-decoration: none;
+      font-weight: 600; font-size: 15px; border: 1px solid var(--border);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover {
+      background: var(--bg-elevated); border-color: var(--text-muted);
+    }
+
+    /* Products Section */
+    .products { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-label {
+      font-size: 13px; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+    }
+    .section-title { font-size: 36px; font-weight: 700; margin-bottom: 16px; }
+    .section-subtitle {
+      font-size: 16px; color: var(--text-muted); max-width: 500px; margin: 0 auto;
+    }
+
+    /* Featured Product */
+    .featured-product {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 60px; margin-bottom: 40px;
+      position: relative; overflow: hidden;
+    }
+    .featured-product::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .featured-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--accent); padding: 6px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; margin-bottom: 20px;
+    }
+    .featured-content {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .featured-info h3 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+    .featured-info > p {
+      color: var(--text-muted); font-size: 16px;
+      margin-bottom: 24px; line-height: 1.7;
+    }
+    .feature-list {
+      list-style: none; margin-bottom: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    }
+    .feature-list li {
+      display: flex; align-items: center; gap: 10px;
+      padding: 6px 0; color: var(--text-muted); font-size: 13px;
+    }
+    .feature-list li::before {
+      content: '\2713'; color: var(--success); font-weight: 700;
+      width: 18px; height: 18px; background: rgba(34, 197, 94, 0.1);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; flex-shrink: 0;
+    }
+    .featured-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .featured-visual { position: relative; }
+    .app-screenshot {
+      background: var(--bg-dark); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .app-screenshot-header { display: flex; gap: 6px; margin-bottom: 12px; }
+    .app-screenshot-header span { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+    .app-screenshot-content { background: var(--bg-card); border-radius: 8px; padding: 20px; }
+    .mock-dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mock-stat { background: var(--bg-elevated); border-radius: 8px; padding: 14px; }
+    .mock-stat-label { font-size: 10px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .mock-stat-value { font-size: 18px; font-weight: 700; }
+    .mock-stat-value.positive { color: var(--success); }
+    .mock-stat-value.accent { color: var(--accent); }
+    .mock-sidebar { margin-top: 12px; display: flex; gap: 8px; }
+    .mock-nav-item { background: var(--bg-elevated); padding: 6px 12px; border-radius: 6px; font-size: 10px; color: var(--text-muted); }
+    .mock-nav-item.active { background: var(--accent); color: white; }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .product-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .product-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .product-card h4 { font-size: 18px; font-weight: 600; }
+    .product-card .status {
+      font-size: 11px; padding: 4px 10px; border-radius: 100px; font-weight: 500;
+    }
+    .status-live { background: rgba(34, 197, 94, 0.1); color: var(--success); }
+    .status-dev { background: rgba(234, 179, 8, 0.1); color: #eab308; }
+    .status-client { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .product-card .tagline { color: var(--accent); font-size: 12px; font-weight: 500; margin-bottom: 8px; }
+    .product-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; line-height: 1.5; }
+    .product-meta {
+      display: flex; gap: 16px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .product-meta-item { font-size: 11px; color: var(--text-muted); }
+    .product-meta-item strong { color: var(--text); font-weight: 600; }
+
+    /* Services */
+    .services {
+      padding: 100px 0; background: var(--bg-card);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+    .service-item { text-align: center; padding: 32px; }
+    .service-item h4 { font-size: 18px; font-weight: 600; margin: 16px 0 8px; }
+    .service-item p { color: var(--text-muted); font-size: 14px; }
+    .service-icon {
+      width: 56px; height: 56px; background: var(--bg-elevated);
+      border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; font-size: 24px; margin: 0 auto;
+    }
+
+    /* About */
+    .about { padding: 100px 0; }
+    .about-content {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+    .about p { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; line-height: 1.7; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tech-tag {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; text-align: center;
+    }
+    .stat-item .number {
+      font-size: 36px; font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-item .label { color: var(--text-muted); font-size: 14px; margin-top: 8px; }
+
+    /* Contact */
+    .contact { padding: 100px 0; text-align: center; }
+    .contact h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; }
+    .contact > p { color: var(--text-muted); font-size: 16px; margin-bottom: 40px; }
+    .contact-email { font-size: 24px; color: var(--accent); text-decoration: none; font-weight: 600; }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer { padding: 40px 0; border-top: 1px solid var(--border); }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { color: var(--text-muted); font-size: 13px; }
+
+    @media (max-width: 900px) {
+      .featured-content { grid-template-columns: 1fr; }
+      .about-content { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .feature-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 120px 0 80px; }
+      .featured-product { padding: 32px; }
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="logo"><div class="logo-icon">S</div> Samavik</a>
+      <ul class="nav-links">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Software for<br><span class="gradient">adventure sports</span></h1>
+      <p>Samavik builds SaaS products and custom software for the skydiving, BASE jumping, and indoor skydiving industries. From video workflow automation to booking platforms.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">Our Products</a>
+        <a href="#contact" class="btn-secondary">Work With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Products</div>
+        <h2 class="section-title">What We Build</h2>
+        <p class="section-subtitle">Purpose-built software for the adventure sports industry.</p>
+      </div>
+
+      <!-- Featured: Cutaway -->
+      <div class="featured-product">
+        <div class="featured-badge">Flagship Product</div>
+        <div class="featured-content">
+          <div class="featured-info">
+            <h3>Cutaway</h3>
+            <p>The complete video workflow platform for skydiving dropzones. From manifest to delivery — Cutaway handles camera assignments, video editing, and automatic delivery to customers.</p>
+            <ul class="feature-list">
+              <li>iOS app for manifest & camera assignment</li>
+              <li>Windows desktop editor with FFmpeg</li>
+              <li>Automatic video delivery via email</li>
+              <li>Customer self-service portal</li>
+              <li>Multi-camera sync & stitching</li>
+              <li>Dropzone analytics dashboard</li>
+              <li>Photographer payment tracking</li>
+              <li>Cloud storage & backup</li>
+            </ul>
+            <div class="featured-buttons">
+              <a href="#contact" class="btn-primary">Request a Demo</a>
+            </div>
+          </div>
+          <div class="featured-visual">
+            <div class="app-screenshot">
+              <div class="app-screenshot-header"><span></span><span></span><span></span></div>
+              <div class="app-screenshot-content">
+                <div class="mock-sidebar">
+                  <span class="mock-nav-item active">Manifest</span>
+                  <span class="mock-nav-item">Videos</span>
+                  <span class="mock-nav-item">Delivery</span>
+                  <span class="mock-nav-item">Revenue</span>
+                </div>
+                <div class="mock-dashboard" style="margin-top: 16px;">
+                  <div class="mock-stat"><div class="mock-stat-label">Videos Today</div><div class="mock-stat-value accent">24</div></div>
+                  <div class="mock-stat"><div class="mock-stat-label">Delivered</div><div class="mock-stat-value positive">18</div></div>
+                  <div class="mock-stat"><div class="mock-stat-label">Revenue Today</div><div class="mock-stat-value positive">$1,440</div></div>
+                  <div class="mock-stat"><div class="mock-stat-label">Avg Turnaround</div><div class="mock-stat-value">12 min</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client Projects -->
+      <div class="section-header" style="margin-top: 60px;">
+        <div class="section-label">Clients</div>
+        <h2 class="section-title">Client Projects</h2>
+        <p class="section-subtitle">Custom software built for leading names in the industry.</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">🌐</div>
+          <div class="product-header"><h4>FlyTribe</h4><span class="status status-live">Live</span></div>
+          <div class="tagline">Indoor Skydiving Booking Platform</div>
+          <p>International booking platform for indoor skydiving. WordPress multisite with ISS tunnel integration, custom PHP solutions, and AJAX-powered interfaces across multiple regional sites.</p>
+          <div class="product-meta">
+            <div class="product-meta-item"><strong>Sites:</strong> .no .se .eu .dk</div>
+            <div class="product-meta-item"><strong>Stack:</strong> WordPress, PHP, JS</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #f97316, #dc2626);">🏔</div>
+          <div class="product-header"><h4>BFS</h4><span class="status status-client">Client</span></div>
+          <div class="tagline">bfs.at</div>
+          <p>Web platform for one of Europe's leading skydiving operations. Custom booking system, event management, and athlete progression tracking.</p>
+          <div class="product-meta">
+            <div class="product-meta-item"><strong>Location:</strong> Austria</div>
+            <div class="product-meta-item"><strong>Stack:</strong> Next.js</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon" style="background: linear-gradient(135deg, #0f0f0f, #333);">🪂</div>
+          <div class="product-header"><h4>LTBJ</h4><span class="status status-dev">In Development</span></div>
+          <div class="tagline">learntobasejump.com</div>
+          <p>Mobile companion app for a professional BASE jumping school in Switzerland. Course booking, packing tutorials, and student progress tracking.</p>
+          <div class="product-meta">
+            <div class="product-meta-item"><strong>Platform:</strong> iOS / Android</div>
+            <div class="product-meta-item"><strong>Stack:</strong> React Native</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-subtitle">End-to-end software development for adventure sports businesses.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-item"><div class="service-icon">📱</div><h4>Mobile Apps</h4><p>Native iOS and cross-platform React Native applications for field operations and customer-facing products.</p></div>
+        <div class="service-item"><div class="service-icon">🌐</div><h4>Web Platforms</h4><p>Modern web applications with React, Next.js, Rails, and cloud infrastructure. Booking systems, dashboards, and customer portals.</p></div>
+        <div class="service-item"><div class="service-icon">🎬</div><h4>Video Workflow</h4><p>Automated video processing pipelines with FFmpeg, cloud delivery, and custom editing tools for high-volume operations.</p></div>
+        <div class="service-item"><div class="service-icon">🖥</div><h4>Desktop Apps</h4><p>Cross-platform desktop applications with Tauri and Rust for performance-critical video editing and processing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div>
+          <h2>About Samavik</h2>
+          <p>Samavik is a UAE-based software company specialising in products and platforms for the adventure sports industry. We build tools that solve real operational problems — from video delivery at busy dropzones to booking platforms for wind tunnels across Europe.</p>
+          <p>Our flagship product Cutaway automates the entire skydiving video workflow, from camera assignment on the manifest to automatic delivery to the customer's inbox. We also build custom software for leading operators including FlyTribe, BFS, and Learn To BASE Jump.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Next.js / React</span>
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Ruby on Rails</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Rust / Tauri</span>
+            <span class="tech-tag">FFmpeg</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">AWS / Vercel</span>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item"><div class="number">3</div><div class="label">Active Clients</div></div>
+          <div class="stat-item"><div class="number">UAE</div><div class="label">Headquarters</div></div>
+          <div class="stat-item"><div class="number">2025</div><div class="label">Founded</div></div>
+          <div class="stat-item"><div class="number">6+</div><div class="label">Years Experience</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Let's Talk</h2>
+      <p>Interested in Cutaway or want to discuss a custom project?</p>
+      <a href="mailto:ed@samavik.com" class="contact-email">ed@samavik.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-copy">&copy; 2026 Samavik L.L.C-FZ. Registered in UAE (Meydan Free Zone).</span>
+        <ul class="footer-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>
