@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WordPress to Next.js Migration | Samavik</title>
+  <meta name="description" content="Migrate your WordPress site to Next.js — 90% cheaper hosting, sub-second page loads, zero maintenance. Free audit available. Samavik, Dubai.">
+  <link rel="canonical" href="https://samavik.com/wordpress-migration">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300d4ff'/%3E%3Ctext x='50' y='72' font-family='sans-serif' font-size='60' font-weight='bold' fill='%230a0a0a' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="WordPress to Next.js Migration | Samavik">
+  <meta property="og:description" content="Hosting drops from £300/mo to £20/mo. Page speeds improve 50-80%. Zero WordPress maintenance. Free audit available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samavik.com/wordpress-migration">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="WordPress to Next.js Migration | Samavik">
+  <meta name="twitter:description" content="Hosting drops from £300/mo to £20/mo. Page speeds improve 50-80%. Zero WordPress maintenance. Free audit available.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "WordPress to Next.js Migration",
+    "provider": { "@type": "Organization", "name": "Samavik L.L.C-FZ", "url": "https://samavik.com" },
+    "description": "Professional WordPress to Next.js migration service. Cut hosting costs by 90%, improve page load times by 50-80%, and eliminate WordPress maintenance entirely.",
+    "areaServed": "Worldwide",
+    "serviceType": "Web Development"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-elevated: #1a1a1a;
+      --border: #222222;
+      --border-hover: #333333;
+      --accent: #00d4ff;
+      --accent-dim: #0891b2;
+      --accent-glow: rgba(0, 212, 255, 0.15);
+      --text: #ffffff;
+      --text-secondary: #a3a3a3;
+      --text-muted: #666666;
+      --success: #22c55e;
+      --red: #ef4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 300;
+    }
+
+    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .logo {
+      font-size: 18px; font-weight: 600; color: var(--text);
+      text-decoration: none; display: flex; align-items: center; gap: 10px;
+      letter-spacing: 0.02em;
+    }
+    .logo-mark {
+      width: 28px; height: 28px; background: var(--accent);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; font-weight: 700; font-size: 13px;
+      color: #0a0a0a;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 13px;
+      font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #0a0a0a;
+      padding: 9px 20px; border-radius: 4px; text-decoration: none;
+      font-weight: 600; font-size: 13px; letter-spacing: 0.02em;
+      transition: box-shadow 0.3s;
+    }
+    .nav-cta:hover { box-shadow: 0 0 20px var(--accent-glow); }
+
+    /* Section shared */
+    .section { padding: 120px 0; }
+    .section-label {
+      font-size: 11px; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px); font-weight: 700;
+      line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.01em;
+    }
+    .section-divider { width: 48px; height: 2px; background: var(--accent); margin-bottom: 24px; }
+    .section-subtitle {
+      font-size: 16px; color: var(--text-secondary); max-width: 560px;
+      line-height: 1.7; font-weight: 300;
+    }
+    .section-header { margin-bottom: 64px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-subtitle { margin: 0 auto; }
+    .section-header.center .section-divider { margin: 0 auto 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -20%; left: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none; filter: blur(80px);
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 8px 16px; border-radius: 100px; margin-bottom: 24px;
+      font-size: 13px; color: var(--text-secondary); font-weight: 400;
+    }
+    .hero-badge .tag {
+      background: var(--accent); color: #0a0a0a; padding: 2px 8px;
+      border-radius: 100px; font-size: 11px; font-weight: 600;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 64px); font-weight: 700;
+      line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.03em;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-desc {
+      font-size: 17px; color: var(--text-secondary);
+      max-width: 620px; margin: 0 auto 40px; line-height: 1.7; font-weight: 300;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: #0a0a0a;
+      padding: 14px 32px; border-radius: 4px; text-decoration: none;
+      font-weight: 600; font-size: 14px; letter-spacing: 0.02em;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 30px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      padding: 14px 32px; border-radius: 4px; text-decoration: none;
+      font-weight: 500; font-size: 14px; letter-spacing: 0.02em;
+      border: 1px solid var(--border); transition: border-color 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 48px;
+      margin-top: 60px; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .number {
+      font-size: 36px; font-weight: 700; color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .hero-stat .label {
+      font-size: 12px; color: var(--text-muted); margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 0.1em; font-weight: 400;
+    }
+
+    /* Card grid */
+    .card-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+    }
+    .card-grid--loose {
+      gap: 24px; background: transparent; border: none;
+      border-radius: 0; overflow: visible;
+    }
+
+    /* Problem cards */
+    .problem-card {
+      background: var(--bg-card); padding: 36px;
+      transition: background 0.3s;
+    }
+    .problem-card:hover { background: var(--bg-elevated); }
+    .p-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 20px;
+    }
+    .problem-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+    .problem-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; }
+
+    /* Comparison table */
+    .comparison-section {
+      padding: 120px 0; background: var(--bg-card);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .comp-wrap {
+      border-radius: 8px; border: 1px solid var(--border); overflow-x: auto;
+    }
+    .comp-table { width: 100%; border-collapse: collapse; background: var(--bg); }
+    .comp-table th, .comp-table td {
+      padding: 16px 24px; text-align: left;
+      border-bottom: 1px solid var(--border); font-size: 14px; font-weight: 300;
+    }
+    .comp-table th {
+      background: var(--bg-elevated); font-weight: 600;
+      color: var(--text-muted); font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .comp-table th.hl { color: var(--accent); background: rgba(0, 212, 255, 0.05); }
+    .comp-table td.hl { background: rgba(0, 212, 255, 0.03); }
+    .comp-table tr:last-child td { border-bottom: none; font-weight: 600; font-size: 15px; }
+    .old { color: var(--red); }
+    .new { color: var(--success); }
+    .savings-banner {
+      background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.15);
+      border-radius: 8px; padding: 32px; text-align: center; margin-top: 32px;
+    }
+    .savings-banner .amount { font-size: 36px; font-weight: 700; color: var(--accent); }
+    .savings-banner .label { font-size: 13px; color: var(--text-muted); margin-top: 8px; font-weight: 400; }
+
+    /* Process steps */
+    .step-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+    }
+    .step-card {
+      background: var(--bg-card); padding: 32px 24px;
+      transition: background 0.3s;
+    }
+    .step-card:hover { background: var(--bg-elevated); }
+    .step-num {
+      font-size: 28px; font-weight: 700; color: var(--accent);
+      margin-bottom: 12px; display: block; letter-spacing: -0.02em;
+    }
+    .step-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .step-card p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; font-weight: 300; }
+    .step-dur {
+      display: inline-block; margin-top: 16px; font-size: 11px;
+      font-weight: 500; color: var(--accent); background: var(--accent-glow);
+      padding: 4px 10px; border-radius: 4px; letter-spacing: 0.03em;
+    }
+
+    /* Case study */
+    .case-study-section {
+      padding: 120px 0; background: var(--bg-card);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .cs-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 48px; position: relative; overflow: hidden;
+    }
+    .cs-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 40%, var(--accent-glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cs-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-glow); color: var(--accent);
+      padding: 6px 14px; border-radius: 4px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.03em;
+      margin-bottom: 20px; position: relative;
+    }
+    .cs-card h3 {
+      font-size: 24px; font-weight: 700; margin-bottom: 12px;
+      position: relative;
+    }
+    .cs-card > p {
+      color: var(--text-secondary); font-size: 15px; margin-bottom: 32px;
+      line-height: 1.7; max-width: 700px; position: relative; font-weight: 300;
+    }
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden; margin-bottom: 32px; position: relative;
+    }
+    .metric {
+      background: var(--bg-card); padding: 24px; text-align: center;
+    }
+    .metric .before {
+      font-size: 14px; color: var(--red);
+      text-decoration: line-through; opacity: 0.7;
+    }
+    .metric .arrow { color: var(--text-muted); font-size: 12px; margin: 4px 0; }
+    .metric .after { font-size: 24px; font-weight: 700; color: var(--accent); }
+    .metric .mlabel {
+      font-size: 11px; color: var(--text-muted); margin-top: 8px;
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 400;
+    }
+    .cs-note {
+      color: var(--text-secondary); font-size: 14px; line-height: 1.7;
+      font-weight: 300; position: relative;
+    }
+
+    /* Stack cards */
+    .stack-card {
+      background: var(--bg-card); padding: 36px;
+      transition: background 0.3s;
+    }
+    .stack-card:hover { background: var(--bg-elevated); }
+    .s-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: var(--accent-glow); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 20px; color: var(--accent);
+    }
+    .stack-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+    .stack-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; }
+
+    /* Trust cards */
+    .trust-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px;
+      transition: border-color 0.3s;
+    }
+    .trust-card:hover { border-color: var(--success); }
+    .t-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 20px;
+    }
+    .trust-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
+    .trust-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; }
+    .trust-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 28px;
+    }
+    .faq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .faq-item p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-weight: 300; }
+
+    /* CTA */
+    .cta-section { padding: 120px 0; text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 60px; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-size: 32px; font-weight: 700; margin-bottom: 16px;
+      position: relative; letter-spacing: -0.01em;
+    }
+    .cta-box p {
+      font-size: 16px; color: var(--text-secondary); margin-bottom: 32px;
+      position: relative; font-weight: 300; line-height: 1.7;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; position: relative; flex-wrap: wrap; }
+    .cta-email { margin-top: 24px; position: relative; }
+    .cta-email a {
+      color: var(--accent); text-decoration: none; font-size: 18px; font-weight: 600;
+      transition: text-shadow 0.3s;
+    }
+    .cta-email a:hover { text-shadow: 0 0 20px var(--accent-glow); }
+
+    /* Footer */
+    footer { padding: 32px 0; border-top: 1px solid var(--border); }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { color: var(--text-muted); font-size: 12px; font-weight: 300; }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 12px;
+      font-weight: 400; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .step-grid { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 140px 0 80px; }
+      .hero-stats { gap: 24px; }
+      .hero-stat .number { font-size: 28px; }
+      .cs-card { padding: 28px; }
+      .cta-box { padding: 40px 24px; }
+      .footer-content { flex-direction: column; gap: 16px; text-align: center; }
+      .metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="/" class="logo"><div class="logo-mark" aria-hidden="true">S</div> Samavik</a>
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#costs">Pricing</a></li>
+        <li><a href="#case-study">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="mailto:edward@samavik.com?subject=Free%20WordPress%20Audit" class="nav-cta">Free Audit</a>
+    </nav>
+  </header>
+
+  <main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge"><span class="tag">SERVICE</span> WordPress to Next.js Migration</div>
+      <h1>Migrate WordPress to<br><span>Next.js</span> &mdash; faster, cheaper,<br>zero maintenance</h1>
+      <p class="hero-desc">Your WordPress site costs too much, loads too slowly, and needs constant maintenance. We migrate it to a modern stack that cuts hosting 90%, loads in under a second, and requires zero maintenance.</p>
+      <div class="hero-buttons">
+        <a href="mailto:edward@samavik.com?subject=Free%20WordPress%20Audit&body=Hi%2C%0A%0AMy%20WordPress%20site%20is%3A%20%5Byour%20URL%5D%0A%0AI'd%20like%20a%20free%20audit.%0A%0AThanks" class="btn-primary">Get a Free Site Audit</a>
+        <a href="#case-study" class="btn-outline">See Results</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="number">90%</div><div class="label">Hosting cost reduction</div></div>
+        <div class="hero-stat"><div class="number">&lt;1s</div><div class="label">Page load time</div></div>
+        <div class="hero-stat"><div class="number">0</div><div class="label">Plugins to maintain</div></div>
+        <div class="hero-stat"><div class="number">95+</div><div class="label">Lighthouse score</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">WordPress is costing you more than you think</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">It's not just hosting. It's the plugins, the security patches, the updates that break things, and the developer time to keep it all running.</p>
+      </div>
+      <div class="card-grid">
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128274;</div><h4>Security vulnerability</h4><p>WordPress is the #1 target for hackers. Every plugin is an attack vector. One outdated plugin can compromise your entire site.</p></div>
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128012;</div><h4>Slow page loads</h4><p>Every request hits a PHP server and MySQL database. Add a page builder and plugins and you're looking at 3&ndash;5 second load times. Google notices.</p></div>
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128295;</div><h4>Endless maintenance</h4><p>WordPress core updates. Plugin updates. Theme updates. PHP upgrades. Database optimisation. SSL renewals. Backup management. It never stops.</p></div>
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128176;</div><h4>Compounding costs</h4><p>Hosting &pound;11&ndash;44/mo. Plugin licences &pound;15&ndash;50/mo. Theme &pound;5&ndash;15/mo. Developer maintenance &pound;50&ndash;200/mo. That's &pound;1,000&ndash;3,700+ per year.</p></div>
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128165;</div><h4>Plugin conflicts</h4><p>Update one plugin, break another. The #1 cause of WordPress downtime isn't hacking &mdash; it's a routine update gone wrong.</p></div>
+        <div class="problem-card"><div class="p-icon" aria-hidden="true">&#128200;</div><h4>SEO penalty</h4><p>Google's Core Web Vitals directly affect rankings. Slow TTFB, poor LCP, layout shifts &mdash; WordPress sites increasingly fail these metrics.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Comparison -->
+  <section class="comparison-section" id="costs">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">The Numbers</div>
+        <h2 class="section-title">Side-by-side cost comparison</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Real numbers. No hidden fees. The new stack pays for itself from month one.</p>
+      </div>
+      <div class="comp-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Item</th><th>WordPress</th><th class="hl">Next.js (New)</th></tr></thead>
+          <tbody>
+            <tr><td>Hosting server</td><td class="old">&pound;11&ndash;44/mo</td><td class="hl new">&pound;0 (eliminated)</td></tr>
+            <tr><td>Vercel Pro</td><td>&mdash;</td><td class="hl">&pound;20/mo</td></tr>
+            <tr><td>CMS (Builder.io)</td><td>&mdash;</td><td class="hl new">&pound;0 (free plan)</td></tr>
+            <tr><td>DNS management</td><td class="old">&pound;1&ndash;5/mo</td><td class="hl new">&pound;0 (Cloudflare free)</td></tr>
+            <tr><td>Premium theme licence</td><td class="old">&pound;5&ndash;15/mo</td><td class="hl new">&pound;0 (custom-built)</td></tr>
+            <tr><td>Plugin licences</td><td class="old">&pound;15&ndash;50/mo</td><td class="hl new">&pound;0 (no plugins)</td></tr>
+            <tr><td>Ongoing maintenance</td><td class="old">&pound;50&ndash;200/mo</td><td class="hl new">&pound;0 (no WP to maintain)</td></tr>
+            <tr><td><strong>Total Monthly</strong></td><td class="old"><strong>&pound;83&ndash;314/mo</strong></td><td class="hl new"><strong>&pound;20/mo</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="savings-banner">
+        <div class="amount">&pound;756 &ndash; &pound;3,500+</div>
+        <div class="label">Annual savings &mdash; recurring every year</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Zero-downtime migration in 5 steps</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Your WordPress site stays live throughout. Nothing changes until you've approved the new site.</p>
+      </div>
+      <div class="step-grid">
+        <div class="step-card"><span class="step-num">01</span><h4>Free Audit</h4><p>We review your current WordPress site &mdash; costs, performance, content, DNS, email. You get a specific report with numbers.</p><span class="step-dur">1&ndash;2 days</span></div>
+        <div class="step-card"><span class="step-num">02</span><h4>Build &amp; Preview</h4><p>The new site is built and deployed to a private preview URL. You see exactly what you're getting before committing.</p><span class="step-dur">1&ndash;2 weeks</span></div>
+        <div class="step-card"><span class="step-num">03</span><h4>Review &amp; Approve</h4><p>You and your team test the preview. Feedback, revisions, content checks. Nothing goes live until you say so.</p><span class="step-dur">3&ndash;5 days</span></div>
+        <div class="step-card"><span class="step-num">04</span><h4>Switch &amp; Redirect</h4><p>DNS pointed to the new site. 301 redirects preserve SEO. Sitemap submitted. WordPress kept as backup.</p><span class="step-dur">1 day</span></div>
+        <div class="step-card"><span class="step-num">05</span><h4>Monitor &amp; Train</h4><p>2&ndash;4 weeks monitoring. Training for your content editor. Cancel WordPress when you're confident.</p><span class="step-dur">2&ndash;4 weeks</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="case-study-section" id="case-study">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Proof</div>
+        <h2 class="section-title">Real migration, real results</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">WordPress Multisite with 4 international domains migrated to Next.js on Vercel.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-badge">Completed Migration</div>
+        <h3>International Business &mdash; 4 Domains</h3>
+        <p>WordPress Multisite on managed hosting &rarr; Next.js on Vercel + Cloudflare DNS + Builder.io CMS. Phased migration, one domain at a time, with full rollback capability at every stage.</p>
+        <div class="metrics">
+          <div class="metric"><div class="before">&pound;300/mo</div><div class="arrow">&darr;</div><div class="after">&pound;20/mo</div><div class="mlabel">Monthly Hosting</div></div>
+          <div class="metric"><div class="before">Score: ~55</div><div class="arrow">&darr;</div><div class="after">95+</div><div class="mlabel">Lighthouse Score</div></div>
+          <div class="metric"><div class="before">~1,200ms</div><div class="arrow">&darr;</div><div class="after">&lt;100ms</div><div class="mlabel">Time to First Byte</div></div>
+          <div class="metric"><div class="before">12+ plugins</div><div class="arrow">&darr;</div><div class="after">0</div><div class="mlabel">Plugins to Maintain</div></div>
+        </div>
+        <p class="cs-note">The non-technical content editor now manages all 4 domains independently via a visual drag-and-drop editor &mdash; creating pages, editing content, and publishing without any developer involvement. WordPress maintenance was completely eliminated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack -->
+  <section class="section" id="stack">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">The New Stack</div>
+        <h2 class="section-title">What replaces WordPress</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Modern, proven technologies used by Netflix, Nike, TikTok, and thousands of others.</p>
+      </div>
+      <div class="card-grid">
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#9889;</div><h4>Next.js + React</h4><p>The most popular React framework. Server-side rendering, automatic code splitting, image optimisation. Built by Vercel.</p></div>
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#127760;</div><h4>Vercel (Hosting)</h4><p>Global edge network, 100+ locations. Push to GitHub, live in 60 seconds. Instant rollbacks. &pound;20/month.</p></div>
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#9998;</div><h4>Builder.io (CMS)</h4><p>Visual drag-and-drop editor. Your team edits content like WordPress &mdash; no code required. Free plan included.</p></div>
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#128737;</div><h4>Cloudflare (DNS)</h4><p>Free DNS, DDoS protection, near-instant propagation. Full control over all records. Replaces paid DNS add-ons.</p></div>
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#128272;</div><h4>TypeScript</h4><p>Type-safe JavaScript. Catches bugs before they reach production. Industry standard for modern web apps.</p></div>
+        <div class="stack-card"><div class="s-icon" aria-hidden="true">&#127912;</div><h4>Tailwind CSS</h4><p>Utility-first CSS framework. Fast to build, easy to maintain, consistent design system across all pages.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">Ownership</div>
+        <h2 class="section-title">You keep full control</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">No vendor lock-in. No held-hostage code. Everything belongs to your business.</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card"><div class="t-icon" aria-hidden="true">&#128194;</div><h4>Full source code access</h4><p>Complete codebase on your GitHub account. You own it. Any Next.js developer worldwide can pick it up and continue.</p></div>
+        <div class="trust-card"><div class="t-icon" aria-hidden="true">&#128100;</div><h4>Your accounts, your email</h4><p>Vercel, Cloudflare, Builder.io &mdash; all created with your business email. We're invited as a team member, not an owner.</p></div>
+        <div class="trust-card"><div class="t-icon" aria-hidden="true">&#128682;</div><h4>Clean offboarding</h4><p>If we stop working together, you remove our access with one click. Full documentation provided. No dependency.</p></div>
+        <div class="trust-card"><div class="t-icon" aria-hidden="true">&#128256;</div><h4>Platform portable</h4><p>Next.js is open source &mdash; move from Vercel to Netlify, AWS, or any server. Builder.io content exports via API.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header center">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item"><h4>Will my team still be able to edit the website?</h4><p>Yes. Builder.io provides a visual drag-and-drop editor that works much like WordPress. Your team can edit text, swap images, create posts, and publish &mdash; no code needed. Training included.</p></div>
+        <div class="faq-item"><h4>Will I lose my Google rankings?</h4><p>No. All URLs are mapped and 301 redirected. Metadata preserved. Rankings may fluctuate for 2&ndash;4 weeks, then stabilise &mdash; typically higher due to improved Core Web Vitals.</p></div>
+        <div class="faq-item"><h4>What if something goes wrong?</h4><p>Your WordPress site stays live during the entire migration. If anything goes wrong, we revert DNS back to WordPress in minutes. Completely reversible.</p></div>
+        <div class="faq-item"><h4>How long does it take?</h4><p>Typically 3&ndash;5 weeks including monitoring. The actual switch happens in a day &mdash; the rest is building, testing, and making sure everything is perfect.</p></div>
+        <div class="faq-item"><h4>What about my email?</h4><p>Email (MX records) is carefully preserved during DNS migration. We audit all records before touching anything. Email continues without interruption.</p></div>
+        <div class="faq-item"><h4>What does the migration cost?</h4><p>Quoted per-project after the free audit. Ongoing infrastructure is just &pound;20/month (Vercel Pro). No plugin fees, no theme fees, no maintenance fees.</p></div>
+        <div class="faq-item"><h4>Can I go back to WordPress?</h4><p>Yes. WordPress is kept running for 2&ndash;4 weeks as a safety net. Reverting is as simple as pointing DNS back. Content is always exportable.</p></div>
+        <div class="faq-item"><h4>I run an agency &mdash; can you white-label?</h4><p>Yes. We work with agencies as a white-label delivery partner. You keep the client relationship and charge your rate. We handle the build.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Start with a free audit</h2>
+        <p>Send us your WordPress site URL. We'll review it and send back a report on costs, performance, and what a migration would look like.</p>
+        <div class="cta-buttons">
+          <a href="mailto:edward@samavik.com?subject=Free%20WordPress%20Audit&body=Hi%2C%0A%0AMy%20WordPress%20site%20is%3A%20%5Byour%20URL%5D%0A%0AI'd%20like%20a%20free%20audit.%0A%0AThanks" class="btn-primary">Get Free Audit</a>
+          <a href="/" class="btn-outline">&larr; Back to Samavik</a>
+        </div>
+        <div class="cta-email"><a href="mailto:edward@samavik.com">edward@samavik.com</a></div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-copy">&copy; 2026 Samavik L.L.C-FZ. Meydan Free Zone, Dubai, UAE.</span>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>

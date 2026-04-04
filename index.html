@@ -220,6 +220,46 @@
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* ── Migration banner ── */
+    .migration-banner {
+      margin-top: 48px; background: var(--bg-card);
+      border: 1px solid var(--accent-dim); border-radius: 8px;
+      padding: 40px; display: grid; grid-template-columns: 1fr auto;
+      gap: 32px; align-items: center; position: relative; overflow: hidden;
+      text-decoration: none; color: inherit; transition: border-color 0.3s;
+    }
+    .migration-banner:hover { border-color: var(--accent); }
+    .migration-banner::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .migration-banner h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .migration-banner p {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+      font-weight: 300; max-width: 600px;
+    }
+    .migration-stats {
+      display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .migration-stat {
+      background: var(--bg-elevated); border-radius: 8px;
+      padding: 12px 16px; text-align: center;
+      border: 1px solid var(--border);
+    }
+    .migration-stat .val {
+      font-size: 20px; font-weight: 700; color: var(--accent);
+    }
+    .migration-stat .lbl {
+      font-size: 10px; color: var(--text-muted); margin-top: 2px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .migration-cta {
+      display: inline-block; margin-top: 16px;
+      color: var(--accent); font-size: 13px; font-weight: 500;
+    }
+
     /* ── Services ── */
     .services-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
@@ -533,6 +573,7 @@
       .nav-links.open { display: flex; }
       .nav-cta { display: none; }
       .services-grid { grid-template-columns: 1fr; }
+      .migration-banner { grid-template-columns: 1fr; }
       .feature-row { grid-template-columns: 1fr; gap: 40px; }
       .feature-row.reverse .feature-text { order: 1; }
       .feature-row.reverse .feature-visual { order: 2; }
@@ -637,6 +678,19 @@
           <p>REST and GraphQL APIs, third-party integrations, payment systems, and data pipelines. We connect your systems and make them talk.</p>
         </div>
       </div>
+
+      <a href="wordpress-migration.html" class="migration-banner">
+        <div>
+          <h3>WordPress &rarr; Next.js Migration</h3>
+          <p>Is your WordPress site slow, expensive, or high-maintenance? We migrate it to Next.js on Vercel &mdash; cutting hosting by 90%, delivering sub-second load times, and eliminating WordPress maintenance entirely.</p>
+          <span class="migration-cta">Learn more &amp; get a free audit &rarr;</span>
+        </div>
+        <div class="migration-stats">
+          <div class="migration-stat"><div class="val">90%</div><div class="lbl">Cost cut</div></div>
+          <div class="migration-stat"><div class="val">95+</div><div class="lbl">Lighthouse</div></div>
+          <div class="migration-stat"><div class="val">&lt;1s</div><div class="lbl">Load time</div></div>
+        </div>
+      </a>
     </div>
   </section>
 
