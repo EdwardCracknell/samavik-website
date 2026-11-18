@@ -13,6 +13,7 @@
     var cs = document.querySelector('meta[name="color-scheme"]'); if (cs) cs.setAttribute('content', m === 'day' ? 'light' : 'dark');
     var b = document.querySelector('.mode');
     if (b) b.setAttribute('aria-label', m === 'day' ? 'Switch to evening mode' : 'Switch to day mode');
+    var rm = document.querySelector('.mode-row'); if (rm) rm.textContent = m === 'day' ? 'Switch to evening' : 'Switch to day';
   }
   var current = root.getAttribute('data-theme') === 'day' ? 'day' : 'evening';
   applyMode(current);
@@ -23,13 +24,29 @@
     try { localStorage.setItem(KEY, current); } catch (e) { /* storage blocked: the choice lasts for this visit only */ }
   });
 
-  /* ---- Narrow-screen menu ---- */
+  /* ---- Narrow-screen menu: a sheet that closes on Escape, keeps focus inside while open and returns it ---- */
   var menuBtn = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
   if (menuBtn && nav) {
-    var setMenu = function (open) { if (open) nav.setAttribute('data-open', ''); else nav.removeAttribute('data-open'); menuBtn.setAttribute('aria-expanded', String(open)); };
-    menuBtn.addEventListener('click', function () { setMenu(!nav.hasAttribute('data-open')); });
-    nav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) setMenu(false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.hasAttribute('data-open')) { setMenu(false); menuBtn.focus(); } });
+    var isOpen = function () { return nav.hasAttribute('data-open'); };
+    var setMenu = function (open, giveBack) {
+      if (open) nav.setAttribute('data-open', ''); else nav.removeAttribute('data-open');
+      root.classList.toggle('menu-open', open); menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.textContent = open ? 'Close' : 'Menu';
+      if (open) { var first = nav.querySelector('a'); if (first) first.focus(); } else if (giveBack) menuBtn.focus();
+    };
+    menuBtn.addEventListener('click', function () { setMenu(!isOpen(), true); });
+    nav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) setMenu(false, false); });
+    var rowMode = nav.querySelector('.mode-row'); if (rowMode && modeBtn) rowMode.addEventListener('click', function () { modeBtn.click(); });
+    var wide = window.matchMedia ? window.matchMedia('(min-width: 981px)') : null;
+    if (wide && wide.addEventListener) wide.addEventListener('change', function (e) { if (e.matches && isOpen()) setMenu(false, false); });
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen()) return;
+      if (e.key === 'Escape') { e.preventDefault(); setMenu(false, true); return; }
+      if (e.key !== 'Tab') return;
+      var items = [menuBtn].concat([].slice.call(nav.querySelectorAll('a, button')), modeBtn ? [modeBtn] : []).filter(function (el) { return el.offsetParent !== null; });
+      var i = items.indexOf(document.activeElement);
+      if (e.shiftKey && (i <= 0)) { e.preventDefault(); items[items.length - 1].focus(); }
+      else if (!e.shiftKey && (i === items.length - 1 || i === -1)) { e.preventDefault(); items[0].focus(); }
+    });
   }
 
   /* ---- One slow, slight arrival per section ---- */

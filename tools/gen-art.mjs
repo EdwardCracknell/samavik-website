@@ -7,21 +7,18 @@ const f = (n) => Math.round(n * 10) / 10;
 const head = (vb, body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" fill="none" stroke="#fff" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round">${body}</svg>\n`;
 const circle = (cx, cy, r) => `M${f(cx - r)} ${f(cy)}a${r} ${r} 0 1 0 ${f(2 * r)} 0a${r} ${r} 0 1 0 ${f(-2 * r)} 0Z`;
 
-// The field: a ring of equal circles, each centred a little round from the last, so the overlap draws a lace of petals.
-// The middle is left open (each circle is drawn only outside a disc), so there is no hub to sit under text.
-function field(cx = 300, cy = 300, open = 74) {
-  const n = 72, r = 138, d = 112;
-  const phi = Math.acos((r * r + d * d - open * open) / (2 * r * d));
-  const out = [];
+// The field: a ring of equal circles, each centred a little round from the last, so the overlap draws a lace of long
+// arcs. Its centre is off the page, to the right: the page sees only the sweep of arcs, never the middle (no ring, no
+// hole, no hub). The stroke fades with a gradient, to nothing at the left, so it never reaches the text column.
+function field() {
+  const W = 1000, cx = 905, cy = 520, n = 96, r = 330, d = 255;
+  const paths = [];
   for (let i = 0; i < n; i++) {
-    const a = (i / n) * Math.PI * 2;
-    const x = cx + d * Math.cos(a), y = cy + d * Math.sin(a);
-    const from = a + Math.PI + phi, to = a + Math.PI - phi + Math.PI * 2, mid = (from + to) / 2;
-    const p = (t) => `${f(x + r * Math.cos(t))} ${f(y + r * Math.sin(t))}`;
-    out.push(`M${p(from)}A${r} ${r} 0 0 1 ${p(mid)}A${r} ${r} 0 0 1 ${p(to)}`);
+    const a = (i / n) * Math.PI * 2, x = cx + d * Math.cos(a), y = cy + d * Math.sin(a);
+    paths.push(circle(f(x), f(y), r));
   }
-  for (const rr of [open, open + 3.2, 276, 280, 288]) out.push(circle(cx, cy, rr));
-  return head('0 0 600 600', `<path d="${out.join('')}"/>`);
+  const def = `<defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="120" y1="0" x2="760" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.35"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient></defs>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${W}" fill="none" stroke="url(#g)" stroke-width="0.9" stroke-linecap="round">${def}<path d="${paths.join('')}"/></svg>\n`;
 }
 
 // Contours: nested closed curves from a few sines, like the relief on a sectional chart.
