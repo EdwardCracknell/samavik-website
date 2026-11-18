@@ -186,12 +186,18 @@ em, .it { font-family: var(--ot-font-display); font-style: italic; font-weight: 
 .menu-btn { display: none; min-height: 44px; padding: 0 16px; font: inherit; font-size: 0.75rem; font-weight: 600; letter-spacing: var(--ot-track-button); text-transform: uppercase; background: transparent; color: var(--ot-ink); border: 1px solid var(--ot-line-strong); border-radius: var(--ot-radius); cursor: pointer; }
 .nav-end { display: flex; align-items: center; gap: 12px; }
 .nav .sheet-only { display: none; }
+html:not(.js) .mode { display: none; }
+html:not(.js) .nav-end { display: none; }
 @media (max-width: 980px) {
   :root { --bar: 64px; }
   .bar .wrap { gap: 10px; min-height: var(--bar); }
   .house b { font-size: 1.5rem; }
-  .menu-btn { display: inline-flex; align-items: center; margin-left: auto; }
+  .js .menu-btn { display: inline-flex; align-items: center; margin-left: auto; }
   .nav-end { margin-left: 0; }
+  /* without scripts the menu is plain links, wrapped under the bar */
+  html:not(.js) .bar .wrap { flex-wrap: wrap; padding-block: 8px; }
+  html:not(.js) .nav { width: 100%; margin-left: 0; order: 3; justify-content: flex-start; flex-wrap: wrap; gap: 4px 18px; }
+  html:not(.js) .nav ul { flex-wrap: wrap; }
   /* The menu is a full, calm sheet: the same destinations in the serif, the key, and the mode switch */
   .js .nav { position: fixed; z-index: 40; left: 0; right: 0; top: var(--bar); bottom: 0; overflow-y: auto; display: none; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0; margin: 0; padding: 12px var(--gutter) 40px; background: var(--ot-canvas); border-top: 1px solid var(--ot-line); }
   .js .nav[data-open] { display: flex; }
@@ -224,7 +230,7 @@ em, .it { font-family: var(--ot-font-display); font-style: italic; font-weight: 
 .facts li { padding: 26px 28px 34px 0; }
 .facts li + li { padding-left: 28px; border-left: 1px solid var(--ot-line); }
 .facts b { display: block; font-family: var(--ot-font-display); font-weight: 400; font-size: 1.6rem; line-height: 1.15; letter-spacing: -0.01em; color: var(--ot-ink); }
-.facts span { display: block; margin-top: 6px; font-size: 0.8125rem; line-height: 1.55; color: var(--ot-ink-3); }
+.facts span { display: block; margin-top: 6px; font-size: 0.8125rem; line-height: 1.55; color: var(--ot-ink-2); }
 @media (max-width: 700px) {
   .head { --fw: 175vw; }
   .head .art-field { right: calc(var(--fw) * -0.4); top: 0; transform: none;
@@ -438,10 +444,11 @@ form[aria-busy="true"] .key { opacity: 0.7; }
 @media (max-width: 720px) { .legal section { grid-template-columns: 1fr; } }
 
 /* ---- WordPress migration page ------------------------------------------------------------------------------ */
-.wp-hero h1 { font-size: clamp(2.7rem, 0.9rem + 6vw, 6rem); max-width: 14ch; }
+.wp-hero h1 { font-size: clamp(2.3rem, 0.9rem + 5vw, 5.4rem); max-width: 13em; margin-top: 28px; }
 .wp-hero h1 em { color: var(--ot-ink-2); }
 .stats { margin-top: clamp(56px, 7vw, 104px); display: grid; grid-template-columns: repeat(4, 1fr); border-top: 4px double var(--ot-line-strong); max-width: 1100px; }
-.stats > div { padding: 26px 24px 30px 0; }
+.stats > div { padding: 26px 24px 30px 0; display: flex; flex-direction: column-reverse; justify-content: flex-end; }
+.stats dd { margin: 0; }
 .stats > div + div { padding-left: 24px; border-left: 1px solid var(--ot-line); }
 .stats .fig { font-family: var(--ot-font-display); font-size: clamp(2.8rem, 1.8rem + 3vw, 4.6rem); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: lining-nums; }
 .stats .label { margin-top: 12px; }
@@ -450,13 +457,14 @@ form[aria-busy="true"] .key { opacity: 0.7; }
 .ruled { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 4px double var(--ot-line-strong); column-gap: clamp(32px, 6vw, 96px); }
 .ruled.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .ruled > li { padding: 30px 0 34px; border-bottom: 1px solid var(--ot-line); }
-.ruled h4 { font-family: var(--ot-font-display); font-weight: 400; font-size: 1.75rem; line-height: 1.12; letter-spacing: -0.015em; margin-top: 14px; }
+.ruled h3 { font-family: var(--ot-font-display); font-weight: 400; font-size: 1.75rem; line-height: 1.12; letter-spacing: -0.015em; margin-top: 14px; }
 .ruled p { margin-top: 12px; color: var(--ot-ink-2); max-width: 52ch; font-size: 0.96875rem; }
 @media (max-width: 900px) { .ruled, .ruled.cols-3 { grid-template-columns: 1fr; } }
 
-.table-wrap { overflow-x: auto; border: 1px solid var(--ot-line-strong); padding: var(--ot-frame-gap); background: var(--ot-card); }
+.table-wrap { border: 1px solid var(--ot-line-strong); padding: var(--ot-frame-gap); background: var(--ot-card); }
 .table-wrap > .in { border: 1px solid var(--ot-line-strong); overflow-x: auto; }
-.comp { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9375rem; }
+.comp { width: 100%; border-collapse: collapse; min-width: 0; font-size: 0.9375rem; }
+@media (max-width: 640px) { .comp th, .comp td { padding: 12px 9px; font-size: 0.8125rem; } .comp thead th { letter-spacing: 0.1em; } .comp tfoot th, .comp tfoot td { font-size: 1.2rem; } .table-wrap { padding: 4px; } }
 .comp caption { text-align: left; }
 .comp th, .comp td { padding: 16px 22px; text-align: left; border-bottom: 1px solid var(--ot-line); vertical-align: baseline; }
 .comp thead th { font-size: 0.6875rem; font-weight: 600; letter-spacing: var(--ot-track-label); text-transform: uppercase; color: var(--ot-ink-2); border-bottom: 1px solid var(--ot-line-strong); }
@@ -484,36 +492,55 @@ form[aria-busy="true"] .key { opacity: 0.7; }
 .cta .head-acts { margin-top: 34px; }
 .cta .mail { margin-top: 22px; }
 
-/* ---- Print: a prospectus in ink on white (D-116: neutral ink) ---------------------------------------------- */
+/* ---- Print: a one- or two-page prospectus in ink on white (D-116: neutral ink) ------------------------------- */
 @media print {
-  :root, :root[data-theme="day"], :root:not([data-theme]) {
+  :root, :root[data-theme="day"] {
     --ot-canvas: #fff; --ot-canvas-deep: #fff; --ot-card: #fff; --ot-card-soft: #fff; --ot-ink: #000; --ot-ink-2: #222; --ot-ink-3: #444;
-    --ot-line: #bbb; --ot-line-strong: #777; --ot-bronze: #555; --ot-bronze-text: #333; --ot-btn: #000; --ot-on-btn: #fff; --ot-input: #fff;
+    --ot-line: #bbb; --ot-line-strong: #777; --ot-bronze: #555; --ot-bronze-text: #333; --ot-btn: #000; --ot-on-btn: #fff; --ot-input: #fff; --gutter: 0px;
   }
-  html { scroll-behavior: auto; font-size: 11px; }
-  body { background: #fff; color: #000; line-height: 1.5; }
-  .bar, .art, .skip, .mode, .menu-btn, .head-acts, .contact-form-card, .key, .key-quiet, .shot, .colophon .art-compass, .form-only { display: none !important; }
+  @page { size: A4; margin: 10mm 11mm 11mm; }
+  html { scroll-behavior: auto; font-size: 10px; }
+  body { background: #fff; color: #000; line-height: 1.34; font-size: 7.6pt; }
+  .bar, .art, .skip, .mode, .menu-btn, .head-acts, .form-only, .key, .key-quiet, .shot, .sheet-only, .colophon .fine a, .legal-back { display: none !important; }
   .js .arrive, .arrive { opacity: 1 !important; transform: none !important; }
-  .sec, .head, .legal-head { padding-block: 22px; overflow: visible; border: 0; }
-  .head .wrap { padding-top: 6px; }
-  .head h1 { font-size: 40pt; }
-  .facts { margin-top: 18px; }
-  .title { font-size: 24pt; }
-  .three h3, .plate h3 { font-size: 17pt; }
-  .three h3 { min-height: 0; }
-  .plate, .bookplate, .card { break-inside: avoid; }
-  .plate > .in, .bookplate > .in { padding: 12px 14px; min-height: 0; }
-  .plate-wide > .in, .plate-wide.rev > .in { grid-template-columns: 1fr; }
-  .plates-small { grid-template-columns: 1fr 1fr; }
-  .steps > li { padding: 12px 0; break-inside: avoid; }
-  .steps .n { font-size: 30pt; }
-  .bookplate .name { font-size: 34pt; margin-top: 0; }
-  .founder-grid, .contact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .three { break-inside: avoid; }
+  .wrap { max-width: none; padding-inline: 0; }
+  .sec, .head, .legal-head { padding-block: 5px 0; overflow: visible; border: 0; }
+  .head .wrap { padding-top: 0; }
+  .eyebrow::before { width: 24px; }
+  .head h1, .wp-hero h1 { font-size: 23pt; margin-top: 8px; max-width: none; }
+  .head .lede { font-size: 10pt; margin-top: 6px; max-width: none; } .head .lede .own { display: inline; }
+  .facts, .stats { margin-top: 10px; max-width: none; }
+  .facts li { padding: 8px 12px 6px 0; } .facts li + li { padding-left: 12px; }
+  .facts b { font-size: 11pt; } .facts span { font-size: 7.5pt; }
+  .sec-head { margin-bottom: 5px; } .sec-head .title { margin-top: 6px; }
+  .title { font-size: 16pt; max-width: none; } .sec-head .lede.sub { display: none; } .promise .also { margin-top: 4px; } .sec-head { break-after: avoid; }
+  .three { grid-template-columns: repeat(3, 1fr); } .three > li, .three > li + li { padding: 8px 10px 0 0; } .three > li + li { padding-left: 10px; border-left: 1px solid #bbb; border-top: 0; margin-top: 0; }
+  .three h3 { font-size: 12pt; margin-top: 4px; min-height: 0; max-width: none; } .three p.body { margin-top: 4px; } .fit > div { margin-top: 8px; padding-top: 6px; } .fit .it { font-size: 9.5pt; } .three .fit { padding-top: 0; }
+  #work > .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; align-items: start; } #work .sec-head { grid-column: 1 / -1; }
+  .plates, .plates-wide, .plates-small { display: contents; }
+  .plate, .bookplate, .card, .steps li, .three { break-inside: avoid; }
+  .plate > .in { padding: 6px 9px; }
+  .plate-wide > .in, .plate-wide.rev > .in { display: flex; flex-direction: column; gap: 0; padding: 6px 9px; }
+  .plate h3 { font-size: 12pt; margin-top: 4px; } .plate .tag { font-size: 9.5pt; margin-top: 2px; } .plate .desc { font-size: 7.2pt; margin-top: 4px; max-width: none; line-height: 1.4; }
+  .plate-small .standing { font-size: 11pt; margin-top: 4px; } .plate-small .tag { margin-top: 3px; padding-top: 3px; }
+  .specs { margin-top: 4px; } .specs > div { padding: 2px 0; grid-template-columns: 70px 1fr; } .specs dd { font-size: 7.5pt; } .plate .visit { padding-top: 4px; } .plate .visit a { min-height: 0; font-size: 8pt; }
+  .plates-small .plate, .plates-small .plate > .in { display: block; } .plate-wide { display: block; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 14px; border-top: 3px double #777; }
+  .steps > li { display: block; padding: 5px 0 2px; border-bottom: 0; } .steps .n { font-size: 18pt; display: block; margin-bottom: 2px; } .steps h3 { font-size: 12pt; } .steps p { font-size: 8pt; }
+  .founder-grid, .contact-grid { grid-template-columns: 1fr 1.3fr; gap: 16px; }
+  .bookplate > .in { padding: 12px 14px; min-height: 0; } .bookplate .name { font-size: 26pt; margin-top: 8px; } .bookplate .rule { margin: 8px 0; } .bookplate .stand { font-size: 10.5pt; } .bookplate .ent { margin-top: 8px; padding-top: 6px; }
+  .founder-body .prose p { font-size: 7.4pt; line-height: 1.35; } .founder-body .prose p + p { margin-top: 0.5em; } .founder-links { margin-top: 6px; padding-top: 2px; } .founder-links a { min-height: 0; font-size: 8.5pt; } .inscription { margin-top: 5px; padding-top: 4px; } .inscription p { font-size: 8.5pt; }
+  .contact-grid { grid-template-columns: 1.2fr 1fr; gap: 12px; } .promise .lede { font-size: 9.5pt; max-width: none; } .promise .also { margin-top: 8px; } .promise .also > div { padding: 3px 0; } .promise .also a { min-height: 0; font-size: 9pt; }
   a { text-decoration: none; }
-  .prose a[href^="http"]::after, .plate .visit a::after, .founder-links a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #333; }
+  .prose a[href^="http"]::after, .plate .visit a::after, .founder-links a[href^="http"]::after { content: ""; }
+  .plate .visit a { text-decoration: underline; }
   .colophon { border-top: 1px solid #000; background: #fff; }
-  .colophon .wrap { padding-block: 14px; }
-  .sec-head { margin-bottom: 16px; }
-  @page { margin: 14mm 14mm 16mm; }
+  .colophon .wrap { padding-block: 4px 0; grid-template-columns: 1fr 3fr; gap: 12px; } .colophon .wrap > div:nth-child(3), .colophon .it, .colophon .label { display: none; } .colophon .house { margin-bottom: 0; } .colophon .mt { margin-top: 0; } .colophon p.fine { padding-top: 0; border: 0; font-size: 7pt; } .colophon li a { min-height: 0; font-size: 8pt; } .colophon p { font-size: 7.5pt; }
+  /* the other pages */
+  .legal { padding-block: 4px; } .legal-head .wrap { padding-block: 0 8px; } .legal-head h1 { font-size: 26pt; margin-top: 6px; } .legal section { padding-block: 10px; }
+  .ruled, .ruled.cols-3 { grid-template-columns: 1fr 1fr 1fr; column-gap: 14px; } .ruled > li { padding: 8px 0; } .ruled h3 { font-size: 11pt; } .ruled p { font-size: 8pt; }
+  .stats { grid-template-columns: repeat(4, 1fr); } .stats .fig { font-size: 22pt; }
+  .table-wrap { border: 0; padding: 0; } .table-wrap > .in { border: 0; } .comp { min-width: 0; font-size: 8pt; } .comp th, .comp td { padding: 4px 8px; } .comp tfoot th, .comp tfoot td { font-size: 11pt; padding-block: 6px; }
+  .saving { margin-top: 8px; } .saving .fig { font-size: 20pt; } .pairs { grid-template-columns: repeat(4, 1fr); margin-top: 8px; } .pairs .a { font-size: 15pt; } .pairs .b { font-size: 10pt; }
+  .cta .card .in2 { padding: 10px 14px; } .cta h2 { font-size: 20pt; } .cta .head-acts { display: none; }
 }

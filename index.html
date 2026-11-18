@@ -10,7 +10,7 @@
   <meta name="color-scheme" content="dark">
   <script>
     /* Evening by default; the choice made with the switch is remembered on this device. Runs before first paint, so there is no flash of the wrong mode. */
-    (function(){var d=document.documentElement;d.className='js';try{if(localStorage.getItem('samavik-mode')==='day'){d.setAttribute('data-theme','day');}}catch(e){}})();
+    (function(){var d=document.documentElement;d.className='js';try{if(localStorage.getItem('samavik-mode')==='day'){d.setAttribute('data-theme','day');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f5f2');m=document.querySelector('meta[name=color-scheme]');if(m)m.setAttribute('content','light');}}catch(e){}})();
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -385,7 +385,7 @@
               <div class="notice" id="cf-notice" role="alert" hidden></div>
               <div class="form-foot">
                 <button class="key" type="submit" id="cf-submit"><span class="t">Send</span><span aria-hidden="true">→</span></button>
-                <p class="form-note">Replies within one working day. Your details are used only to answer you (<a href="/privacy">privacy</a>).</p>
+                <p class="form-note">Your details are used only to answer you (<a href="/privacy">privacy</a>).</p>
               </div>
               <p class="progress-line" aria-hidden="true">Sending your message…</p>
               <p class="sr" id="cf-live" role="status" aria-live="polite"></p>

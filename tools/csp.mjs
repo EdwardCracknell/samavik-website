@@ -23,4 +23,15 @@ const cfg = {
     ] },
   ],
 };
-fs.writeFileSync(root + 'vercel.json', JSON.stringify(cfg, null, 2) + '\n'); console.log(csp);
+if (!process.argv.includes('--check')) fs.writeFileSync(root + 'vercel.json', JSON.stringify(cfg, null, 2) + '\n');
+// Fail loudly when a page and the policy disagree: every inline script's hash must be in the policy now on disk, and nothing the policy forbids may be on a page.
+const onDisk = JSON.parse(fs.readFileSync(root + 'vercel.json', 'utf8')).headers.find((h) => h.source === '/(.*)').headers.find((h) => h.key === 'Content-Security-Policy').value;
+let bad = 0;
+for (const f of ['index.html', 'privacy.html', 'wordpress-migration.html']) {
+  const h = fs.readFileSync(root + f, 'utf8'); const re = /<script>([\s\S]*?)<\/script>/g; let m;
+  while ((m = re.exec(h))) { const x = "'sha256-" + crypto.createHash('sha256').update(m[1]).digest('base64') + "'"; if (!onDisk.includes(x)) { console.error(`FAIL ${f}: inline script hash ${x} is not in the policy in vercel.json (run node tools/csp.mjs)`); bad++; } }
+  if (/<style[\s>]/i.test(h) || /\sstyle="/i.test(h)) { console.error(`FAIL ${f}: inline style (the policy allows style from the site only)`); bad++; }
+  if (/\son(click|load|error|submit|change)="/i.test(h)) { console.error(`FAIL ${f}: inline event handler`); bad++; }
+  if (/(src|href)="https?:\/\/(?!samavik\.com|www\.edcracknell|learntobasejump|teamcutaway|apps\.apple|www\.linkedin)/i.test(h.replace(/<a [^>]*>/g, ''))) { console.error(`FAIL ${f}: a non-site resource reference`); bad++; }
+}
+if (bad) process.exit(1); console.log('CSP matches every page.\n' + onDisk);

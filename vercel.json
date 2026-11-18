@@ -25,7 +25,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-f0HAN2JkQsZ5wJFP97baDDClsronnAnraBtVZj6U0gA=' 'sha256-GZtjg/fhBuBBpRYaBElpKnVHlzmJHWoYE8lkujL6f1g='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+          "value": "default-src 'self'; script-src 'self' 'sha256-3+fr73wxP/N1d96L76MVqEOOZSwwp29PfN1mztHJ47A='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
         },
         {
           "key": "Referrer-Policy",

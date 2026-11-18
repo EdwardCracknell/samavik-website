@@ -4,7 +4,7 @@ const [out, pg = '/', widths = '1440', modes = 'evening', secs = 'full', base = 
 fs.mkdirSync(out, { recursive: true });
 const b = await chromium.launch();
 for (const w of widths.split(',').map(Number)) for (const m of modes.split(',')) {
-  const ctx = await b.newContext({ viewport: { width: w, height: w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
+  const ctx = await b.newContext({ viewport: { width: w, height: w > 800 ? 900 : 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce', bypassCSP: true });
   await ctx.addInitScript((mode) => { try { localStorage.setItem('samavik-mode', mode); } catch (e) {} }, m);
   const p = await ctx.newPage(); const errs = []; p.on('console', (x) => { if (x.type() === 'error') errs.push(x.text()); }); p.on('pageerror', (e) => errs.push(String(e)));
   await p.goto(base + pg, { waitUntil: 'networkidle' }); await p.addStyleTag({ content: '.bar,header{position:static !important}' }); await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); } window.scrollTo(0, 0); }); await p.waitForTimeout(600);

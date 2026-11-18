@@ -6,49 +6,111 @@
   <title>Privacy — Samavik</title>
   <meta name="description" content="How Samavik handles your data.">
   <meta name="robots" content="noindex">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300d4ff'/%3E%3Ctext x='50' y='72' font-family='sans-serif' font-size='60' font-weight='bold' fill='%230a0a0a' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg:#0a0a0b; --border:#232329; --accent:#00d4ff; --text:#f4f4f5; --text-secondary:#a1a1aa; --text-muted:#6b6b74; }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; font-weight:300; }
-    .container { max-width:720px; margin:0 auto; padding:100px 24px 80px; }
-    a { color:var(--accent); }
-    h1 { font-size:2rem; font-weight:700; letter-spacing:-0.02em; }
-    .updated { color:var(--text-muted); font-size:0.85rem; margin-top:8px; }
-    h2 { font-size:1.05rem; font-weight:700; margin:36px 0 10px; }
-    p, li { color:var(--text-secondary); font-size:0.97rem; }
-    ul { padding-left:20px; margin-top:8px; }
-    li + li { margin-top:6px; }
-    .back { display:inline-block; margin-bottom:40px; color:var(--text-muted); text-decoration:none; font-size:0.9rem; }
-    .back:hover { color:var(--text); }
-  </style>
+  <link rel="canonical" href="https://samavik.com/privacy">
+  <meta name="theme-color" content="#101113">
+  <meta name="color-scheme" content="dark">
+  <script>
+    /* Evening by default; the choice made with the switch is remembered on this device. Runs before first paint, so there is no flash of the wrong mode. */
+    (function(){var d=document.documentElement;d.className='js';try{if(localStorage.getItem('samavik-mode')==='day'){d.setAttribute('data-theme','day');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f5f2');m=document.querySelector('meta[name=color-scheme]');if(m)m.setAttribute('content','light');}}catch(e){}})();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <div class="container">
-    <a class="back" href="/">← samavik.com</a>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 8 July 2026</p>
+  <svg class="sr" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="mark" viewBox="0 0 64 64"><circle class="mk-ring" cx="32" cy="32" r="25" fill="none" stroke-width="1.6"/><path class="mk-s" transform="translate(23.25 42.5) scale(0.03400 -0.034)" d="M154 513Q154 475 173 446.5Q192 418 219 397.5Q246 377 294 348Q344 317 373.5 294.5Q403 272 424 239Q445 206 445 161Q445 112 419.5 72.5Q394 33 346.5 10.5Q299 -12 236 -12Q196 -12 157 -2.5Q118 7 89 25Q84 28 82 32Q80 36 80 44L70 187Q69 191 74.5 192Q80 193 81 189Q105 113 148 60Q191 7 260 7Q307 7 339 32.5Q371 58 371 116Q371 160 351 193Q331 226 302 248.5Q273 271 225 300Q178 330 150.5 351.5Q123 373 104 404.5Q85 436 85 478Q85 529 112.5 565Q140 601 184.5 618.5Q229 636 278 636Q344 636 399 613Q414 606 414 595L419 470Q419 466 413.5 465.5Q408 465 407 469Q396 523 360.5 571Q325 619 259 619Q209 619 181.5 589Q154 559 154 513Z"/><path class="mk-rule" d="M17 47.5h30" stroke-width="1.3"/></symbol></svg>
+  <a href="#main" class="skip">Skip to content</a>
 
-    <h2>Who we are</h2>
-    <p>Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Contact: <a href="mailto:edward@samavik.com">edward@samavik.com</a>.</p>
+  <header class="bar">
+    <div class="wrap">
+      <a href="/" class="house" aria-label="Samavik, home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#mark"/></svg><b>Samavik</b></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a href="/#founder">Founder</a></li>
+        </ul>
+        <a class="key-quiet" href="/#contact">Start a project</a>
+        <p class="sheet-only"><span class="label">Evening or day</span><button class="mode-row" type="button">Switch mode</button></p>
+      </nav>
+      <div class="nav-end"><button class="mode" type="button" aria-label="Switch to day mode"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg></button></div>
+    </div>
+  </header>
 
-    <h2>What we collect</h2>
-    <ul>
-      <li><strong>Contact form:</strong> your name, email and message — used solely to reply to your enquiry.</li>
-      <li>No analytics cookies, no tracking pixels, no advertising identifiers on this site.</li>
-    </ul>
+  <main id="main">
+    <section class="legal-head">
+      <div class="art art-field" aria-hidden="true"></div>
+      <div class="wrap">
+        <a class="link legal-back" href="/"><span aria-hidden="true">←</span>&nbsp;samavik.com</a>
+        <p class="eyebrow">Privacy</p>
+        <h1>Privacy <em>Policy</em></h1>
+        <p class="lede">Last updated: 18 November 2026.</p>
+      </div>
+    </section>
 
-    <h2>How we use it</h2>
-    <p>To respond to you and, where a project follows, to run that engagement. We do not sell your data or send bulk marketing.</p>
+    <div class="legal">
+      <div class="wrap"><div>
+        <section>
+          <h2>Who we are</h2>
+          <p>Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Contact: <a href="mailto:edward@samavik.com">edward@samavik.com</a>.</p>
+        </section>
+        <section>
+          <h2>What we collect</h2>
+          <ul>
+            <li><strong>Contact form:</strong> your name, email and message — used solely to reply to your enquiry.</li>
+            <li>No analytics cookies, no tracking pixels, no advertising identifiers on this site.</li>
+            <li><strong>Evening or day:</strong> if you use the switch in the top bar, your choice is kept in your browser’s local storage on your own device, so that the site opens the way you left it. It is never sent to us, and it is not a cookie. Clear your browser’s site data and it is forgotten.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What this site loads</h2>
+          <p>Everything on this site comes from samavik.com itself: its pages, its pictures, and the two typefaces (Cormorant Garamond and Manrope), which we host ourselves. Nothing is requested from Google Fonts or from any other third party, and the site sets no cookies. The only request your browser makes beyond fetching the pages is the one the contact form sends to us when you press Send.</p>
+        </section>
+        <section>
+          <h2>How we use it</h2>
+          <p>To respond to you and, where a project follows, to run that engagement. We do not sell your data or send bulk marketing.</p>
+        </section>
+        <section>
+          <h2>Storage &amp; retention</h2>
+          <p>Enquiries are delivered by email (via Resend) and retained only as long as relevant to the conversation or engagement. Ask and we delete.</p>
+        </section>
+        <section>
+          <h2>Your rights</h2>
+          <p>Email <a href="mailto:edward@samavik.com">edward@samavik.com</a> at any time to ask what we hold, correct it, or have it deleted.</p>
+        </section>
+      </div></div>
+    </div>
+  </main>
 
-    <h2>Storage &amp; retention</h2>
-    <p>Enquiries are delivered by email (via Resend) and retained only as long as relevant to the conversation or engagement. Ask and we delete.</p>
+  <footer class="colophon">
+    <div class="art art-compass" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <a href="/" class="house" aria-label="Samavik, home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#mark"/></svg><b>Samavik</b></a>
+        <p class="it">Founder-led. Proof over promises.</p>
+      </div>
+      <div>
+        <p class="label">Colophon</p>
+        <p class="mt">Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Set in Cormorant Garamond and Manrope, both under the SIL Open Font Licence. This site sets no cookies and loads nothing from anywhere else.</p>
+      </div>
+      <div>
+        <p class="label">Pages</p>
+        <ul>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="fine"><span>© 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE</span><a href="#main">Back to the top ↑</a></p>
+    </div>
+  </footer>
 
-    <h2>Your rights</h2>
-    <p>Email <a href="mailto:edward@samavik.com">edward@samavik.com</a> at any time to ask what we hold, correct it, or have it deleted.</p>
-  </div>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
