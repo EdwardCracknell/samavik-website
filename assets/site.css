@@ -253,6 +253,7 @@ em, .it { font-family: var(--ot-font-display); font-style: italic; font-weight: 
 @supports (grid-template-rows: subgrid) {
   .three { grid-template-rows: auto auto auto 1fr; }
   .three > li { display: grid; grid-row: span 4; grid-template-rows: subgrid; }
+  .three .fit { margin-top: 0; align-self: start; }
 }
 .three p.body { margin-top: 20px; color: var(--ot-ink-2); max-width: 44ch; }
 .fit { margin-top: auto; padding-top: 34px; }
