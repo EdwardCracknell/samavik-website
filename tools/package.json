@@ -1,0 +1,14 @@
+{
+  "name": "samavik-site-tools",
+  "private": true,
+  "description": "Local asset scripts only. Nothing here runs on Vercel; the site is static files.",
+  "devDependencies": {
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource/cormorant-garamond": "5.2.5",
+    "@fontsource/manrope": "5.2.5",
+    "axe-core": "4.10.2",
+    "fontkit": "^2.0.4",
+    "playwright": "^1.65.0",
+    "sharp": "0.33.5"
+  }
+}

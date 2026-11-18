@@ -6,18 +6,36 @@
   <title>Samavik — We build and ship production software in weeks</title>
   <meta name="description" content="Samavik is a founder-led software studio in Dubai. AI-leveraged product engineering: MVPs shipped in weeks, LLM integration, fractional senior engineering. Every product below is real — click it.">
   <link rel="canonical" href="https://samavik.com">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300d4ff'/%3E%3Ctext x='50' y='72' font-family='sans-serif' font-size='60' font-weight='bold' fill='%230a0a0a' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#101113">
+  <meta name="color-scheme" content="dark">
+  <script>
+    /* Evening by default; the choice made with the switch is remembered on this device. Runs before first paint, so there is no flash of the wrong mode. */
+    (function(){var d=document.documentElement;d.className='js';try{if(localStorage.getItem('samavik-mode')==='day'){d.setAttribute('data-theme','day');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f5f2');m=document.querySelector('meta[name=color-scheme]');if(m)m.setAttribute('content','light');}}catch(e){}})();
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.a9ff7df6.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-italic.effe3ef0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.a30ddcd3.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Samavik">
   <meta property="og:title" content="Samavik — production software, shipped in weeks">
   <meta property="og:description" content="Founder-led software studio in Dubai. AI-leveraged product engineering with real, clickable proof.">
   <meta property="og:url" content="https://samavik.com">
+  <meta property="og:image" content="https://samavik.com/assets/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Samavik: we build and ship production software in weeks.">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Samavik — production software, shipped in weeks">
   <meta name="twitter:description" content="Founder-led software studio in Dubai. AI-leveraged product engineering with real, clickable proof.">
+  <meta name="twitter:image" content="https://samavik.com/assets/share.png">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -27,6 +45,7 @@
     "name": "Samavik",
     "legalName": "Samavik L.L.C-FZ",
     "url": "https://samavik.com",
+    "logo": "https://samavik.com/assets/icon-512.png",
     "description": "Founder-led software studio in Dubai, UAE. Product engineering, AI integration, fractional senior engineering.",
     "founder": {
       "@type": "Person",
@@ -42,595 +61,371 @@
     "email": "edward@samavik.com"
   }
   </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0b;
-      --bg-card: #101013;
-      --bg-elevated: #16161a;
-      --border: #232329;
-      --border-hover: #34343c;
-      --accent: #00d4ff;
-      --accent-dim: #0891b2;
-      --accent-soft: rgba(0, 212, 255, 0.08);
-      --text: #f4f4f5;
-      --text-secondary: #a1a1aa;
-      --text-muted: #6b6b74;
-      --radius: 14px;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      font-weight: 400;
-    }
-    ::selection { background: var(--accent); color: #0a0a0b; }
-    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-
-    .skip-nav {
-      position: absolute; left: -9999px;
-      z-index: 200; background: var(--accent); color: #0a0a0b;
-      padding: 12px 24px; font-size: 14px; font-weight: 600;
-      text-decoration: none; border-radius: 8px;
-    }
-    .skip-nav:focus { position: fixed; left: 50%; top: 12px; transform: translateX(-50%); }
-
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── Header ── */
-    header {
-      position: fixed; inset: 0 0 auto 0; z-index: 100;
-      background: rgba(10, 10, 11, 0.8);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 24px; max-width: 1080px; margin: 0 auto;
-    }
-    .logo {
-      font-size: 17px; font-weight: 700; color: var(--text);
-      text-decoration: none; display: flex; align-items: center; gap: 10px;
-      letter-spacing: 0.01em;
-    }
-    .logo-mark {
-      width: 30px; height: 30px; background: var(--accent);
-      border-radius: 8px; display: grid; place-items: center;
-      font-weight: 800; font-size: 14px; color: #0a0a0b;
-    }
-    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
-    .nav-links a {
-      color: var(--text-muted); text-decoration: none; font-size: 13px;
-      font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent); color: #0a0a0b !important;
-      padding: 9px 18px; border-radius: 999px; font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: #33ddff; }
-    @media (max-width: 720px) { .nav-links li:not(:last-child) { display: none; } }
-
-    /* ── Hero ── */
-    .hero { padding: 180px 0 110px; position: relative; overflow: hidden; }
-    .hero::before {
-      content: '';
-      position: absolute; top: -300px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-kicker {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent); font-weight: 600; margin-bottom: 28px;
-    }
-    .hero-kicker::before { content: ''; width: 22px; height: 2px; background: var(--accent); display: inline-block; }
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 800; line-height: 1.06; letter-spacing: -0.03em;
-      max-width: 15ch;
-    }
-    .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      margin-top: 30px; font-size: clamp(1.02rem, 1.6vw, 1.2rem);
-      color: var(--text-secondary); max-width: 56ch; font-weight: 300;
-    }
-    .hero-sub strong { color: var(--text); font-weight: 500; }
-    .hero-actions { display: flex; gap: 14px; margin-top: 42px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 26px; border-radius: 999px;
-      font-size: 15px; font-weight: 600; text-decoration: none;
-      transition: transform 0.2s, background 0.25s, border-color 0.25s;
-    }
-    .btn:active { transform: scale(0.98); }
-    .btn-primary { background: var(--accent); color: #0a0a0b; }
-    .btn-primary:hover { background: #33ddff; }
-    .btn-ghost { color: var(--text); border: 1px solid var(--border-hover); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-    .hero-chips { display: flex; gap: 10px; margin-top: 46px; flex-wrap: wrap; }
-    .chip {
-      font-size: 12.5px; color: var(--text-secondary);
-      border: 1px solid var(--border); border-radius: 999px;
-      padding: 7px 14px; background: var(--bg-card);
-    }
-    .chip b { color: var(--text); font-weight: 600; }
-
-    /* ── Sections ── */
-    .section { padding: 96px 0; }
-    .section + .section { border-top: 1px solid var(--border); }
-    .section-label {
-      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--accent); font-weight: 600; margin-bottom: 14px;
-    }
-    .section-title {
-      font-size: clamp(1.7rem, 3.4vw, 2.4rem);
-      font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
-      max-width: 26ch;
-    }
-    .section-subtitle {
-      margin-top: 16px; color: var(--text-secondary); max-width: 62ch; font-weight: 300;
-      font-size: 1.02rem;
-    }
-
-    /* ── Reveal on scroll ── */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-
-    /* ── Services ── */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
-    @media (max-width: 860px) { .services-grid { grid-template-columns: 1fr; } }
-    .service-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 30px 28px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .service-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
-    .service-num { font-size: 12px; color: var(--accent); font-weight: 700; letter-spacing: 0.15em; margin-bottom: 18px; }
-    .service-card h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
-    .service-card p { margin-top: 12px; color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; }
-    .service-card .fit { margin-top: 16px; font-size: 0.83rem; color: var(--text-muted); }
-    .service-card .fit b { color: var(--text-secondary); font-weight: 500; }
-
-    /* ── Proof / Work ── */
-    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 52px; }
-    @media (max-width: 860px) { .work-grid { grid-template-columns: 1fr; } }
-    .work-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 30px 28px;
-      display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .work-card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
-    .work-card.featured { grid-column: 1 / -1; }
-    @media (min-width: 861px) {
-      .work-card.featured { flex-direction: row; gap: 40px; align-items: flex-start; }
-      .work-card.featured .work-main { flex: 1.4; }
-      .work-card.featured .work-side { flex: 1; }
-    }
-    .work-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-    .work-card h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
-    .work-card.featured h3 { font-size: 1.5rem; }
-    .status {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 4px 10px; border-radius: 999px; white-space: nowrap;
-    }
-    .status--live { color: #4ade80; background: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.25); }
-    .status--client { color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0, 212, 255, 0.25); }
-    .status--dev { color: #fbbf24; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.25); }
-    .status--rd { color: #c084fc; background: rgba(192, 132, 252, 0.1); border: 1px solid rgba(192, 132, 252, 0.25); }
-    .work-tagline { color: var(--accent); font-size: 0.85rem; font-weight: 500; margin-top: 4px; }
-    .work-card p.desc { margin-top: 14px; color: var(--text-secondary); font-size: 0.95rem; font-weight: 300; flex: 1; }
-    .platforms { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
-    .platforms span {
-      font-size: 12px; font-weight: 600; color: var(--text);
-      background: var(--bg-elevated); border: 1px solid var(--border-hover);
-      padding: 5px 12px; border-radius: 999px;
-    }
-    .work-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .work-meta span {
-      font-size: 12px; color: var(--text-muted);
-      background: var(--bg-elevated); border: 1px solid var(--border);
-      padding: 4px 10px; border-radius: 6px;
-    }
-    .work-link {
-      margin-top: 20px; color: var(--accent); text-decoration: none;
-      font-size: 0.9rem; font-weight: 600; display: inline-flex; gap: 6px; align-items: center;
-    }
-    .work-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-    /* ── Process ── */
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
-    @media (max-width: 860px) { .process-grid { grid-template-columns: 1fr; } }
-    .process-step .step-num {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: var(--accent-soft); border: 1px solid rgba(0, 212, 255, 0.25);
-      color: var(--accent); font-weight: 700; display: grid; place-items: center;
-      margin-bottom: 18px; font-size: 15px;
-    }
-    .process-step h3 { font-size: 1.05rem; font-weight: 700; }
-    .process-step p { margin-top: 10px; color: var(--text-secondary); font-size: 0.93rem; font-weight: 300; }
-
-    /* ── Founder ── */
-    .founder-wrap { display: grid; grid-template-columns: 200px 1fr; gap: 44px; margin-top: 52px; align-items: start; }
-    @media (max-width: 720px) { .founder-wrap { grid-template-columns: 1fr; } }
-    .founder-mark {
-      aspect-ratio: 1; border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--accent-soft), var(--bg-elevated));
-      border: 1px solid var(--border);
-      display: grid; place-items: center;
-      font-size: 3rem; font-weight: 800; color: var(--accent);
-    }
-    .founder-body p { color: var(--text-secondary); font-weight: 300; }
-    .founder-body p + p { margin-top: 16px; }
-    .founder-body strong { color: var(--text); font-weight: 600; }
-    .founder-links { display: flex; gap: 18px; margin-top: 24px; flex-wrap: wrap; }
-    .founder-links a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
-    .founder-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-    /* ── Entity strip ── */
-    .entity {
-      margin-top: 60px; padding: 26px 28px;
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-    }
-    .entity p { color: var(--text-secondary); font-size: 0.93rem; font-weight: 300; }
-    .entity p b { color: var(--text); font-weight: 600; }
-
-    /* ── Contact ── */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 52px; }
-    @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-info p { color: var(--text-secondary); font-weight: 300; max-width: 46ch; }
-    .contact-info .email-line { margin-top: 26px; }
-    .contact-info a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .contact-info a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    form label {
-      display: block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-muted); font-weight: 600; margin: 22px 0 8px;
-    }
-    form label:first-of-type { margin-top: 0; }
-    form input, form textarea {
-      width: 100%; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 13px 16px; color: var(--text);
-      font-family: var(--font); font-size: 15px;
-      transition: border-color 0.25s;
-    }
-    form input:focus, form textarea:focus { outline: none; border-color: var(--accent); }
-    form textarea { min-height: 130px; resize: vertical; }
-    form button { margin-top: 26px; width: 100%; cursor: pointer; border: none; font-family: var(--font); }
-    .form-status { margin-top: 14px; font-size: 0.9rem; min-height: 1.4em; }
-    .form-status.ok { color: #4ade80; }
-    .form-status.err { color: #f87171; }
-
-    /* ── Footer ── */
-    footer { border-top: 1px solid var(--border); padding: 44px 0 52px; color: var(--text-muted); font-size: 0.86rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
-    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--text); }
-  </style>
 </head>
 <body>
-  <a href="#main" class="skip-nav">Skip to content</a>
+  <svg class="sr" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="mark" viewBox="0 0 64 64"><circle class="mk-ring" cx="32" cy="32" r="25" fill="none" stroke-width="1.6"/><path class="mk-s" transform="translate(23.25 42.5) scale(0.03400 -0.034)" d="M154 513Q154 475 173 446.5Q192 418 219 397.5Q246 377 294 348Q344 317 373.5 294.5Q403 272 424 239Q445 206 445 161Q445 112 419.5 72.5Q394 33 346.5 10.5Q299 -12 236 -12Q196 -12 157 -2.5Q118 7 89 25Q84 28 82 32Q80 36 80 44L70 187Q69 191 74.5 192Q80 193 81 189Q105 113 148 60Q191 7 260 7Q307 7 339 32.5Q371 58 371 116Q371 160 351 193Q331 226 302 248.5Q273 271 225 300Q178 330 150.5 351.5Q123 373 104 404.5Q85 436 85 478Q85 529 112.5 565Q140 601 184.5 618.5Q229 636 278 636Q344 636 399 613Q414 606 414 595L419 470Q419 466 413.5 465.5Q408 465 407 469Q396 523 360.5 571Q325 619 259 619Q209 619 181.5 589Q154 559 154 513Z"/><path class="mk-rule" d="M17 47.5h30" stroke-width="1.3"/></symbol></svg>
+  <a href="#main" class="skip">Skip to content</a>
 
-  <header>
-    <nav aria-label="Main">
-      <a href="#" class="logo"><span class="logo-mark">S</span> Samavik</a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#founder">Founder</a></li>
-        <li><a href="#contact" class="nav-cta">Start a project</a></li>
-      </ul>
-    </nav>
+  <header class="bar">
+    <div class="wrap">
+      <a href="/" class="house" aria-label="Samavik, home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#mark"/></svg><b>Samavik</b></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#founder">Founder</a></li>
+        </ul>
+        <a class="key-quiet" href="#contact">Start a project</a>
+        <p class="sheet-only"><span class="label">Evening or day</span><button class="mode-row" type="button">Switch mode</button></p>
+      </nav>
+      <div class="nav-end"><button class="mode" type="button" aria-label="Switch to day mode"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg></button></div>
+    </div>
   </header>
 
   <main id="main">
-    <!-- ═══ HERO ═══ -->
-    <section class="hero">
-      <div class="container">
-        <p class="hero-kicker">Software studio · Dubai</p>
-        <h1>We build and ship production software <em>in weeks.</em></h1>
-        <p class="hero-sub">
-          Samavik is a founder-led product studio. AI-leveraged engineering across
-          web, mobile and desktop — <strong>everything on this page is real, and most of it
-          you can click.</strong> Proof over promises.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Start a project</a>
-          <a class="btn btn-ghost" href="#work">See what we've shipped</a>
+    <!-- Head -->
+    <section class="head" aria-labelledby="h-title">
+      <div class="art-box" aria-hidden="true"><div class="art art-field"></div></div>
+      <div class="wrap">
+        <p class="eyebrow">Software studio · Dubai</p>
+        <h1 id="h-title"><span>We build and ship</span> <span>production software</span> <em>in weeks.</em></h1>
+        <p class="lede">Samavik is a founder-led product studio: AI-leveraged engineering across web, mobile and desktop. Everything on this page is real, and most of it you can click. <span class="own">Proof over promises.</span></p>
+        <div class="head-acts">
+          <a class="key" href="#contact">Start a project</a>
+          <a class="link" href="#work">See what we have shipped <span class="arr" aria-hidden="true">→</span></a>
         </div>
-        <div class="hero-chips">
-          <span class="chip"><b>Founder-led</b> — you work with the engineer</span>
-          <span class="chip"><b>UAE-licensed entity</b> — invoice-ready, no EoR needed</span>
-          <span class="chip"><b>AI-leveraged</b> — senior output at startup speed</span>
-        </div>
+        <ul class="facts">
+          <li><b>Founder-led</b><span>You work with the engineer.</span></li>
+          <li><b>UAE-licensed entity</b><span>Invoice-ready, no EoR needed.</span></li>
+          <li><b>AI-leveraged</b><span>Senior output at startup speed.</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ═══ SERVICES ═══ -->
-    <section class="section" id="services">
-      <div class="container">
-        <p class="section-label reveal">Services</p>
-        <h2 class="section-title reveal">Three ways to work with us</h2>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <p class="service-num">01</p>
+    <!-- Services -->
+    <section class="sec" id="services" aria-labelledby="s-title">
+      <div class="wrap arrive">
+        <div class="sec-head">
+          <p class="eyebrow">Services</p>
+          <h2 class="title" id="s-title">Three ways to work with&nbsp;us</h2>
+        </div>
+        <ol class="three">
+          <li>
+            <p class="num">01</p>
             <h3>MVP → Shipped</h3>
-            <p>Idea to production in weeks. Scoped honestly, built on a modern stack, deployed, and handed over clean — or retained and iterated.</p>
-            <p class="fit"><b>For:</b> founders and SMEs who need a real product live, fast.</p>
-          </div>
-          <div class="service-card reveal">
-            <p class="service-num">02</p>
+            <p class="body">Idea to production in weeks. Scoped honestly, built on a modern stack, deployed, and handed over clean, or retained and iterated.</p>
+            <div class="fit"><div><p class="label">For</p><span class="it">founders and SMEs who need a real product live, fast.</span></div></div>
+          </li>
+          <li>
+            <p class="num">02</p>
             <h3>AI Integration</h3>
-            <p>LLM features that actually ship: assistants, automations, content pipelines and agentic workflows wired into your product and your data.</p>
-            <p class="fit"><b>For:</b> businesses told to "do AI" who want working software, not slideware.</p>
-          </div>
-          <div class="service-card reveal">
-            <p class="service-num">03</p>
+            <p class="body">LLM features that actually ship: assistants, automations, content pipelines and agentic workflows wired into your product and your data.</p>
+            <div class="fit"><div><p class="label">For</p><span class="it">businesses told to “do AI” who want working software, not slideware.</span></div></div>
+          </li>
+          <li>
+            <p class="num">03</p>
             <h3>Fractional Product Engineering</h3>
-            <p>Senior full-stack delivery 3–5 days a week on a monthly retainer. The output of a hire without the hire.</p>
-            <p class="fit"><b>For:</b> teams and agencies that need reliable senior capacity, UAE or remote.</p>
-          </div>
+            <p class="body">Senior full-stack delivery 3–5 days a week on a monthly retainer. The output of a hire without the hire.</p>
+            <div class="fit"><div><p class="label">For</p><span class="it">teams and agencies that need reliable senior capacity, UAE or remote.</span></div></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Work: a catalogue of issued pieces -->
+    <section class="sec" id="work" aria-labelledby="w-title">
+      <div class="wrap arrive">
+        <div class="sec-head">
+          <p class="eyebrow">Proof</p>
+          <h2 class="title" id="w-title">Don’t take our word for it. <em>Click the&nbsp;products.</em></h2>
+          <p class="lede sub">Real products across web, iOS, Android and Windows. The live ones link to the live thing: this is what “we know what we’re doing” looks like when it can be checked.</p>
+        </div>
+
+        <div class="plates plates-wide">
+          <article class="plate plate-wide" aria-labelledby="p1">
+            <div class="in">
+              <figure class="shot">
+                <div class="mat"><picture>
+                  <source type="image/avif" srcset="/assets/work/ltbj-640.9eabca6e.avif 640w, /assets/work/ltbj-1200.8f1d945c.avif 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <source type="image/webp" srcset="/assets/work/ltbj-640.db02abc3.webp 640w, /assets/work/ltbj-1200.496ebe6d.webp 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <img src="/assets/work/ltbj-1200.87dc6faf.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="The home page of learntobasejump.com: a BASE jumper on a mountain face, the school’s name above a line about its journey and a call to explore courses.">
+                </picture></div>
+                <figcaption><span>learntobasejump.com</span><span>Captured 18 Nov 2026</span></figcaption>
+              </figure>
+              <div class="txt">
+                <div class="plate-top"><p class="label">No. 01</p><p class="label">Client · In development</p></div>
+                <h3 id="p1">Learn To BASE&nbsp;Jump</h3>
+                <p class="tag it">Website + iOS &amp; Android app for a professional BASE jumping&nbsp;school</p>
+                <p class="desc">Full digital platform for a Switzerland-based BASE school: the public website, plus a cross-platform mobile app covering course booking, packing tutorials and student progression tracking. Safety-critical domain, real client, real users on the way.</p>
+                <dl class="specs">
+                  <div><dt>Platforms</dt><dd>Web<i>·</i>iOS<i>·</i>Android</dd></div>
+                  <div><dt>Covers</dt><dd>Course booking<i>·</i>Progress tracking<i>·</i>Client work</dd></div>
+                </dl>
+                <p class="visit"><a href="https://learntobasejump.com" target="_blank" rel="noopener">learntobasejump.com →</a></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="plate plate-wide rev" aria-labelledby="p2">
+            <div class="in">
+              <figure class="shot">
+                <div class="mat"><picture>
+                  <source type="image/avif" srcset="/assets/work/cutaway-640.6246c0d0.avif 640w, /assets/work/cutaway-1200.9c0b895a.avif 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <source type="image/webp" srcset="/assets/work/cutaway-640.f35c720a.webp 640w, /assets/work/cutaway-1200.a17cfc13.webp 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <img src="/assets/work/cutaway-1200.1518c119.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="The home page of teamcutaway.com: two tandem skydivers in freefall beneath the line “Tandem Video? Sorted.”">
+                </picture></div>
+                <figcaption><span>teamcutaway.com</span><span>Captured 18 Nov 2026</span></figcaption>
+              </figure>
+              <div class="txt">
+                <div class="plate-top"><p class="label">No. 02</p><p class="label">Paying client</p></div>
+                <h3 id="p2">Cutaway</h3>
+                <p class="tag it">Video platform for skydiving dropzones — web, iOS &amp;&nbsp;Windows</p>
+                <p class="desc">Complete commercial SaaS deployed at a working dropzone: iOS manifesting app, Windows desktop editing suite with automated FFmpeg pipelines, and automatic customer delivery. Licensing, billing and support: a full product business, not a demo.</p>
+                <dl class="specs">
+                  <div><dt>Platforms</dt><dd>Web<i>·</i>iOS<i>·</i>Windows</dd></div>
+                  <div><dt>Stack</dt><dd>Rails<i>·</i>Tauri<i>·</i>FFmpeg<i>·</i>Stripe</dd></div>
+                </dl>
+                <p class="visit"><a href="https://teamcutaway.com" target="_blank" rel="noopener">teamcutaway.com →</a></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="plate plate-wide" aria-labelledby="p3">
+            <div class="in">
+              <figure class="shot">
+                <div class="mat mat-phones"><div class="phones" role="group" aria-label="Two screens of the GoSayHi app"><picture><source type="image/avif" srcset="/assets/work/gosayhi-2.6b8a1bdc.avif"><source type="image/webp" srcset="/assets/work/gosayhi-2.b22e2b9b.webp"><img src="/assets/work/gosayhi-2.57c33cd2.jpg" width="380" height="823" loading="lazy" decoding="async" alt="GoSayHi on an iPhone: a glowing orb to tap or hold, with a suggested question beneath it."></picture><picture><source type="image/avif" srcset="/assets/work/gosayhi-7.afdb62a3.avif"><source type="image/webp" srcset="/assets/work/gosayhi-7.eace0fc8.webp"><img src="/assets/work/gosayhi-7.b02b4c2a.jpg" width="380" height="823" loading="lazy" decoding="async" alt="GoSayHi on an iPhone: the coach answering aloud, the orb turned red with “tap orb to stop” beneath it."></picture></div></div>
+                <figcaption><span>GoSayHi on the App Store</span><span>Captured 18 Nov 2026</span></figcaption>
+              </figure>
+              <div class="txt">
+                <div class="plate-top"><p class="label">No. 03</p><p class="label">Live on App Store</p></div>
+                <h3 id="p3">GoSayHi</h3>
+                <p class="tag it">AI voice coach —&nbsp;iOS</p>
+                <p class="desc">Real-time AI voice conversations with usage-based billing. A full production LLM + voice pipeline: latency, cost control, safety and payments, solved and shipped.</p>
+                <dl class="specs">
+                  <div><dt>Platforms</dt><dd>iOS</dd></div>
+                  <div><dt>Covers</dt><dd>LLM + voice<i>·</i>Pay-per-use</dd></div>
+                </dl>
+                <p class="visit"><a href="https://apps.apple.com/gb/app/gosayhi/id6755782169" target="_blank" rel="noopener">Download on the App Store →</a></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="plate plate-wide rev" aria-labelledby="p4">
+            <div class="in">
+              <figure class="shot">
+                <div class="mat"><picture>
+                  <source type="image/avif" srcset="/assets/work/edcracknell-640.8331a21e.avif 640w, /assets/work/edcracknell-1200.ed3270fa.avif 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <source type="image/webp" srcset="/assets/work/edcracknell-640.9d7a40df.webp 640w, /assets/work/edcracknell-1200.a5f7fbfb.webp 1200w" sizes="(max-width: 980px) 90vw, 700px">
+                  <img src="/assets/work/edcracknell-1200.15978d33.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="The home page of edcracknell.com: two skydivers in freefall over fields, with the words Skydiver, Filmmaker, Coach.">
+                </picture></div>
+                <figcaption><span>The business it runs · edcracknell.com</span><span>Captured 18 Nov 2026</span></figcaption>
+              </figure>
+              <div class="txt">
+                <div class="plate-top"><p class="label">No. 04</p><p class="label">Live &amp; running daily</p></div>
+                <h3 id="p4">Coaching CRM&nbsp;Engine</h3>
+                <p class="tag it">The machine behind a real coaching&nbsp;business</p>
+                <p class="desc">Custom CRM with lead scoring, staged AI-personalised outreach, Instagram API automation, Stripe checkout and a client media portal, running a real business every day.</p>
+                <dl class="specs">
+                  <div><dt>Platforms</dt><dd>Web</dd></div>
+                  <div><dt>Stack</dt><dd>Next.js<i>·</i>Neon<i>·</i>Meta APIs<i>·</i>Anthropic API</dd></div>
+                </dl>
+                <p class="visit"><a href="https://www.edcracknell.com" target="_blank" rel="noopener">edcracknell.com →</a></p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="plates plates-small">
+          <article class="plate plate-small" aria-labelledby="p5">
+            <div class="in">
+              <div class="plate-top"><p class="label">No. 05</p><p class="label">Live in production</p></div>
+              <h3 id="p5">DogSpot</h3>
+              <p class="tag it">Social competition&nbsp;app</p>
+              <p class="desc">Mobile social game with real users: accounts, feeds, scoring, moderation and releases. Concept to production, built and operated end-to-end.</p>
+              <dl class="specs">
+                  <div><dt>Platforms</dt><dd>iOS<i>·</i>Android</dd></div>
+                  <div><dt>Stack</dt><dd>React Native<i>·</i>Rails<i>·</i>Postgres</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="plate plate-small" aria-labelledby="p6">
+            <div class="in">
+              <div class="plate-top"><p class="label">No. 06</p><p class="label">R&amp;D · Patent filed</p></div>
+              <h3 id="p6">PPGDrone</h3>
+              <p class="tag it">World-first dual-mode&nbsp;aircraft</p>
+              <p class="desc">Drone-assisted paramotor for wingsuit BASE logistics: hardware, flight systems and software. The lab project that shows range beyond the browser.</p>
+              <dl class="specs">
+                  <div><dt>Platforms</dt><dd>Hardware</dd></div>
+                  <div><dt>Covers</dt><dd>Flight control<i>·</i>EASA Open A3</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <!-- NOT SHOWN. Prepared for the owner's decision (the coordinator will ask him): the aviation platform's plate.
+          <article class="plate plate-small" aria-labelledby="p7">
+            <div class="in">
+              <div class="plate-top"><p class="label">No. 07</p><p class="label">[standing, to be confirmed by the owner]</p></div>
+              <h3 id="p7">Samavik&nbsp;Aviation</h3>
+              <p class="tag it">[one line, to be written with the&nbsp;owner]</p>
+              <p class="desc">[facts only, from the product's own public pages]</p>
+              <dl class="specs"><div><dt>Platforms</dt><dd>Web<i>·</i>iOS<i>·</i>Android</dd></div></dl>
+            </div>
+          </article>
+          -->
         </div>
       </div>
     </section>
 
-    <!-- ═══ WORK / PROOF ═══ -->
-    <section class="section" id="work">
-      <div class="container">
-        <p class="section-label reveal">Proof</p>
-        <h2 class="section-title reveal">Don't take our word for it — click the products</h2>
-        <p class="section-subtitle reveal">
-          Real products across web, iOS, Android and Windows. Live ones link to the live
-          thing. This is what "we know what we're doing" looks like when it's checkable.
-        </p>
-        <div class="work-grid">
-
-          <div class="work-card featured reveal">
-            <div class="work-main">
-              <div class="work-top"><h3>Learn To BASE Jump</h3><span class="status status--client">Client · In development</span></div>
-              <p class="work-tagline">Website + iOS &amp; Android app for a professional BASE jumping school</p>
-              <p class="desc">
-                Full digital platform for a Switzerland-based BASE school: the public website,
-                plus a cross-platform mobile app covering course booking, packing tutorials and
-                student progression tracking. Safety-critical domain, real client, real users
-                on the way.
-              </p>
-              <a class="work-link" href="https://learntobasejump.com" target="_blank" rel="noopener">learntobasejump.com →</a>
-            </div>
-            <div class="work-side">
-              <div class="platforms"><span>Web</span><span>iOS</span><span>Android</span></div>
-              <div class="work-meta"><span>Course booking</span><span>Progress tracking</span><span>Client work</span></div>
-            </div>
-          </div>
-
-          <div class="work-card featured reveal">
-            <div class="work-main">
-              <div class="work-top"><h3>Cutaway</h3><span class="status status--client">Paying client</span></div>
-              <p class="work-tagline">Video platform for skydiving dropzones — web, iOS &amp; Windows</p>
-              <p class="desc">
-                Complete commercial SaaS deployed at a working dropzone: iOS manifesting app,
-                Windows desktop editing suite with automated FFmpeg pipelines, and automatic
-                customer delivery. Licensing, billing and support — a full product business,
-                not a demo.
-              </p>
-              <a class="work-link" href="https://teamcutaway.com" target="_blank" rel="noopener">teamcutaway.com →</a>
-            </div>
-            <div class="work-side">
-              <div class="platforms"><span>Web</span><span>iOS</span><span>Windows</span></div>
-              <div class="work-meta"><span>Rails</span><span>Tauri</span><span>FFmpeg</span><span>Stripe</span></div>
-            </div>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-top"><h3>GoSayHi</h3><span class="status status--live">Live on App Store</span></div>
-            <p class="work-tagline">AI voice coach — iOS</p>
-            <p class="desc">Real-time AI voice conversations with usage-based billing. A full production LLM + voice pipeline: latency, cost control, safety and payments — solved and shipped.</p>
-            <div class="platforms"><span>iOS</span></div>
-            <div class="work-meta"><span>LLM + voice</span><span>Pay-per-use</span></div>
-            <a class="work-link" href="https://apps.apple.com/gb/app/gosayhi/id6755782169" target="_blank" rel="noopener">Download on the App Store →</a>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-top"><h3>DogSpot</h3><span class="status status--live">Live in production</span></div>
-            <p class="work-tagline">Social competition app</p>
-            <p class="desc">Mobile social game with real users: accounts, feeds, scoring, moderation and releases. Concept to production, built and operated end-to-end.</p>
-            <div class="platforms"><span>iOS</span><span>Android</span></div>
-            <div class="work-meta"><span>React Native</span><span>Rails</span><span>Postgres</span></div>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-top"><h3>Coaching CRM Engine</h3><span class="status status--live">Live &amp; running daily</span></div>
-            <p class="work-tagline">The machine behind a real coaching business</p>
-            <p class="desc">Custom CRM with lead scoring, staged AI-personalised outreach, Instagram API automation, Stripe checkout and a client media portal — running a real business every day.</p>
-            <div class="platforms"><span>Web</span></div>
-            <div class="work-meta"><span>Next.js</span><span>Neon</span><span>Meta APIs</span><span>Anthropic API</span></div>
-            <a class="work-link" href="https://www.edcracknell.com" target="_blank" rel="noopener">edcracknell.com →</a>
-          </div>
-
-          <div class="work-card reveal">
-            <div class="work-top"><h3>PPGDrone</h3><span class="status status--rd">R&amp;D · Patent filed</span></div>
-            <p class="work-tagline">World-first dual-mode aircraft</p>
-            <p class="desc">Drone-assisted paramotor for wingsuit BASE logistics — hardware, flight systems and software. The lab project that shows range beyond the browser.</p>
-            <div class="platforms"><span>Hardware</span></div>
-            <div class="work-meta"><span>Flight control</span><span>EASA Open A3</span></div>
-          </div>
-
+    <!-- Process -->
+    <section class="sec" id="process" aria-labelledby="pr-title">
+      <div class="wrap arrive">
+        <div class="sec-head">
+          <p class="eyebrow">Process</p>
+          <h2 class="title" id="pr-title">From concept to production, <em>without the&nbsp;theatre</em></h2>
         </div>
-      </div>
-    </section>
-
-    <!-- ═══ PROCESS ═══ -->
-    <section class="section" id="process">
-      <div class="container">
-        <p class="section-label reveal">Process</p>
-        <h2 class="section-title reveal">From concept to production, without the theatre</h2>
-        <div class="process-grid">
-          <div class="process-step reveal">
-            <div class="step-num">1</div>
+        <ol class="steps">
+          <li>
+            <span class="n" aria-hidden="true">1</span>
             <h3>Scope honestly</h3>
-            <p>Understand the problem, cut it to the smallest thing worth shipping, agree a fixed scope or a retainer. You know exactly what you're getting and when.</p>
-          </div>
-          <div class="process-step reveal">
-            <div class="step-num">2</div>
+            <p>Understand the problem, cut it to the smallest thing worth shipping, agree a fixed scope or a retainer. You know exactly what you’re getting and when.</p>
+          </li>
+          <li>
+            <span class="n" aria-hidden="true">2</span>
             <h3>Build in the open</h3>
-            <p>Working software every week, not status decks. AI-leveraged development means senior output at a pace small teams can't usually buy.</p>
-          </div>
-          <div class="process-step reveal">
-            <div class="step-num">3</div>
+            <p>Working software every week, not status decks. AI-leveraged development means senior output at a pace small teams can’t usually buy.</p>
+          </li>
+          <li>
+            <span class="n" aria-hidden="true">3</span>
             <h3>Ship &amp; stand behind it</h3>
-            <p>Deployed, documented, handed over clean — or retained and iterated. Post-launch support is part of the job, not an upsell.</p>
-          </div>
-        </div>
+            <p>Deployed, documented, handed over clean, or retained and iterated. Post-launch support is part of the job, not an upsell.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ═══ FOUNDER ═══ -->
-    <section class="section" id="founder">
-      <div class="container">
-        <p class="section-label reveal">Founder</p>
-        <h2 class="section-title reveal">The engineer you meet is the engineer who builds</h2>
-        <div class="founder-wrap">
-          <div class="founder-mark reveal" aria-hidden="true">EC</div>
-          <div class="founder-body reveal">
-            <p>
-              Samavik is led by <strong>Ed Cracknell</strong> — a full-stack product engineer
-              who has shipped every product on this page. No account managers, no outsourced
-              teams, no hand-offs: you talk to the person writing the code.
-            </p>
-            <p>
-              Six-plus years across web, mobile, desktop and hardware — and, unusually,
-              a professional skydiving and wind-tunnel coach. The discipline that survives
-              high-stakes environments runs the engineering: honest margins, checklists,
-              nothing improvised under pressure.
-            </p>
-            <p>Based in Dubai from October 2026, working with clients across the UAE, Europe and remote.</p>
+    <!-- Founder: a book plate -->
+    <section class="sec" id="founder" aria-labelledby="f-title">
+      <div class="wrap arrive">
+        <div class="sec-head">
+          <p class="eyebrow">Founder</p>
+          <h2 class="title" id="f-title">The engineer you meet is <em>the engineer who&nbsp;builds</em></h2>
+        </div>
+        <div class="founder-grid">
+          <div class="bookplate">
+            <div class="art art-contours" aria-hidden="true"></div>
+            <div class="in">
+              <p class="label">Founder</p>
+              <p class="name display"><span>Ed</span><span>Cracknell</span></p>
+              <div class="rule" aria-hidden="true"></div>
+              <p class="stand it">Full-stack product engineer; professional skydiving and wind-tunnel&nbsp;coach.</p>
+              <p class="label ent">Samavik L.L.C-FZ · Meydan Free Zone · Dubai</p>
+            </div>
+          </div>
+          <div class="founder-body">
+            <div class="prose">
+              <p>Samavik is led by <strong>Ed Cracknell</strong>, a full-stack product engineer who has shipped every product on this page. No account managers, no outsourced teams, no hand-offs: you talk to the person writing the code.</p>
+              <p>Six-plus years across web, mobile, desktop and hardware and, unusually, a professional skydiving and wind-tunnel coach. The discipline that survives high-stakes environments runs the engineering: honest margins, checklists, nothing improvised under pressure.</p>
+              <p>Based in Dubai from October 2026, working with clients across the UAE, Europe and remote.</p>
+            </div>
             <div class="founder-links">
               <a href="/Edward_Cracknell_CV.pdf" download>Download CV (PDF) ↓</a>
               <a href="https://www.linkedin.com/in/edward-cracknell-11b86aa4" target="_blank" rel="noopener">LinkedIn →</a>
               <a href="mailto:edward@samavik.com">edward@samavik.com</a>
             </div>
+            <div class="inscription">
+              <p class="it"><b>Samavik L.L.C-FZ</b> is a licensed UAE company (Meydan Free Zone, Dubai). Contracts and invoicing run entity-to-entity: no visa sponsorship, EoR or freelance-permit friction for UAE clients, and clean cross-border invoicing for everyone else.</p>
+            </div>
           </div>
-        </div>
-        <div class="entity reveal">
-          <p>
-            <b>Samavik L.L.C-FZ</b> is a licensed UAE company (Meydan Free Zone, Dubai).
-            Contracts and invoicing run entity-to-entity — no visa sponsorship, EoR or
-            freelance-permit friction for UAE clients, and clean cross-border invoicing
-            for everyone else.
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- ═══ CONTACT ═══ -->
-    <section class="section" id="contact">
-      <div class="container">
-        <p class="section-label reveal">Contact</p>
-        <h2 class="section-title reveal">Tell us what you're building</h2>
+    <!-- Contact: a letterpress card -->
+    <section class="sec" id="contact" aria-labelledby="c-title">
+      <div class="wrap arrive">
+        <div class="sec-head">
+          <p class="eyebrow">Contact</p>
+          <h2 class="title" id="c-title">Tell us <em>what you’re&nbsp;building</em></h2>
+        </div>
         <div class="contact-grid">
-          <div class="contact-info reveal">
-            <p>
-              Two sentences is enough: what it is, and when you need it live.
-              You'll get a straight answer — including "you don't need us for that"
-              when that's the truth.
-            </p>
-            <p class="email-line">
-              Prefer email? <a href="mailto:edward@samavik.com">edward@samavik.com</a>
-            </p>
-            <p style="margin-top:14px">
-              Hiring or staffing a build? <a href="/Edward_Cracknell_CV.pdf" download>Download my CV</a>
-              — contract or fixed-scope, invoiced B2B from a UAE entity.
-            </p>
+          <div class="promise">
+            <p class="lede">Two sentences is enough: what it is, and when you need it live. You’ll get a straight answer, including “you don’t need us for that” when that’s the truth.</p>
+            <div class="also">
+              <div><p class="label">Prefer email?</p><a class="ul" href="mailto:edward@samavik.com">edward@samavik.com</a></div>
+              <div><p class="label">Hiring or staffing a build?</p><p><a href="/Edward_Cracknell_CV.pdf" download>Download the CV</a>. Contract or fixed-scope, invoiced B2B from a UAE entity.</p></div>
+            </div>
           </div>
-          <form id="contact-form" class="reveal" novalidate>
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
-            <label for="cf-message">What are you building?</label>
-            <textarea id="cf-message" name="message" required placeholder="What it is, and when you need it live."></textarea>
-            <button class="btn btn-primary" type="submit" id="cf-submit">Send</button>
-            <p class="form-status" id="cf-status" role="status"></p>
-          </form>
+
+          <div class="card form-only">
+            <p class="nojs-note">The form needs JavaScript. Please write to <a href="mailto:edward@samavik.com">edward@samavik.com</a>.</p>
+            <div class="art art-compass" aria-hidden="true"></div>
+            <form id="contact-form" novalidate aria-labelledby="cf-title">
+              <p class="label">Enquiry</p>
+              <h3 class="display" id="cf-title">Write to us</h3>
+              <div class="field">
+                <label class="label" for="cf-name">Name</label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name" aria-describedby="cf-name-err">
+                <p class="err" id="cf-name-err" hidden></p>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" aria-describedby="cf-email-err">
+                <p class="err" id="cf-email-err" hidden></p>
+              </div>
+              <div class="field">
+                <label class="label" for="cf-message">What are you building?</label>
+                <textarea id="cf-message" name="message" required placeholder="What it is, and when you need it live." aria-describedby="cf-message-err cf-count"></textarea>
+                <p class="err" id="cf-message-err" hidden></p>
+                <p class="count" id="cf-count" hidden></p>
+              </div>
+              <div class="notice" id="cf-notice" role="alert" hidden></div>
+              <div class="form-foot">
+                <button class="key" type="submit" id="cf-submit"><span class="t">Send</span><span aria-hidden="true">→</span></button>
+                <p class="form-note">Your details are used only to answer&nbsp;you&nbsp;(<a href="/privacy">privacy</a>).</p>
+              </div>
+              <p class="progress-line" aria-hidden="true">Sending your message…</p>
+              <p class="sr" id="cf-live" role="status" aria-live="polite"></p>
+            </form>
+            <div class="sent" id="cf-sent" hidden>
+              <p class="label">Received</p>
+              <h3 class="display">Thank you.</h3>
+              <p class="it">Got it: you’ll hear back within one working day.</p>
+              <p>If it can’t wait, write to <a href="mailto:edward@samavik.com">edward@samavik.com</a>.</p>
+              <button class="key-quiet" type="button" id="cf-again">Write another message</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-row">
-      <p>© 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE</p>
-      <ul class="footer-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
+  <footer class="colophon">
+    <div class="art art-compass" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <a href="/" class="house" aria-label="Samavik, home"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#mark"/></svg><b>Samavik</b></a>
+        <p class="it">Founder-led. Proof over promises.</p>
+      </div>
+      <div>
+        <p class="label">Colophon</p>
+        <p class="mt">Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Set in Cormorant Garamond and Manrope, both under the SIL Open Font Licence. This site sets no cookies and loads nothing from anywhere else.</p>
+      </div>
+      <div>
+        <p class="label">Pages</p>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+      <p class="fine"><span>© 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE</span><a href="#main">Back to the top ↑</a></p>
     </div>
   </footer>
 
-  <script>
-    // Scroll reveals
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // Contact form → /api/contact (Resend)
-    const form = document.getElementById('contact-form');
-    const statusEl = document.getElementById('cf-status');
-    const submitBtn = document.getElementById('cf-submit');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        message: form.message.value.trim(),
-      };
-      if (!data.name || !data.email || !data.message) {
-        statusEl.textContent = 'All fields are required.';
-        statusEl.className = 'form-status err';
-        return;
-      }
-      submitBtn.disabled = true;
-      statusEl.textContent = 'Sending…';
-      statusEl.className = 'form-status';
-      try {
-        const res = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error();
-        statusEl.textContent = "Got it — you'll hear back within one working day.";
-        statusEl.className = 'form-status ok';
-        form.reset();
-      } catch {
-        statusEl.textContent = 'Something went wrong — email edward@samavik.com instead.';
-        statusEl.className = 'form-status err';
-      } finally {
-        submitBtn.disabled = false;
-      }
-    });
-  </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
