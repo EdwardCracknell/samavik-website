@@ -1,6 +1,6 @@
 # Copy changes: samavik.com redesign (branch `redesign/atelier`)
 
-Every sentence of the three pages that is not word for word as on today's site, old and new, so each can be accepted or refused. Tick the ones you refuse and they go back exactly as they were. No fact, number, price, claim or promise has been added to any page; the one sentence that came close is listed at the end under "Proposed additions, not shown" and is not on the page.
+Every word of the three pages (and the new 404 page) that is not word for word as on today's site, old and new, so each can be accepted or refused. `tools/copy-diff.mjs` compares the redesign's rendered words with `origin/main` and regenerates the raw list (it is advisory: it reports clauses, so a change of punctuation alone shows only in the tables below); this file was reconciled against its output on the final commit. Tick the ones you refuse and they go back exactly as they were. No fact, number, price, claim or promise has been added to any page; the one sentence that came close is listed at the end under "Proposed additions, not shown" and is not on the page.
 
 Not changes of wording, so not listed one by one: tracked capitals for labels (the text is as written), curly quotes and apostrophes instead of straight ones, the dash that joined two clauses becoming a comma or colon (each listed below where it is in a sentence), and the section numbers "No. 01" to "No. 06" and "01" to "05".
 
@@ -37,7 +37,10 @@ Not changes of wording, so not listed one by one: tracked capitals for labels (t
 | 27 | Form, the function refuses | Something went wrong — email edward@samavik.com instead. | Four notices, each keeping what was typed: "The form needs a name, an email address and a message."; "The email address was not accepted."; "One of the fields is longer than we can take (name 200, email 320, message 5,000 characters)."; "The form could not be submitted from here." and, for a failure at our end, "Something went wrong on our side, and your message was not sent. It is still here: try again in a moment. You can write to us directly at edward@samavik.com." |
 | 28 | Form, the network fails (new) | (the same single sentence as above) | We could not reach the server, so nothing was sent. Your message is still here: check your connection and try again. You can write to us directly at edward@samavik.com. |
 | 29 | Footer | © 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE (kept) | Added the colophon: "Founder-led. Proof over promises." and "Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Set in Cormorant Garamond and Manrope, both under the SIL Open Font Licence. This site sets no cookies and loads nothing from anywhere else." The last sentence is true and is checked in REPORT.md. |
-| 30 | Menu | the bar's "Start a project" button | unchanged; on a phone the menu also reads "Evening or day / Switch mode" |
+| 30 | Menu and small interface words (new) | none | "Menu" and "Close" (the phone menu's button), "Evening or day" with "Switch to day" / "Switch to evening" (inside the menu), "Skip to content" (kept), "Back to the top ↑" (footer), the mode switch's spoken names "Switch to day mode" and "Switch to evening mode". |
+| 31 | Contact, labels | Name, Email, What are you building? | the same words as tracked capitals; the page heading above the form is "Write to us" with the label "Enquiry" (no. 22). |
+| 32 | Contact, without JavaScript (new) | the form was shown and sent a GET to the home page with the message in the address | The form needs JavaScript. Please write to edward@samavik.com. |
+| 33 | Work, the numbers | none | "No. 01" to "No. 06" on the plates; the compact plates carry the standing (e.g. "Live in production") in tracked capitals beside the number, as the wide plates do, and the product's descriptor in the italic under the name. The words are the ones you had. |
 
 Titles, descriptions, canonical and the structured data are unchanged except: the Open Graph and Twitter cards now carry the share image (`assets/share.png`), the card is "summary_large_image", and the structured data gained a `logo` address (the icon).
 
@@ -49,7 +52,16 @@ Titles, descriptions, canonical and the structured data are unchanged except: th
 | 2 | (a new bullet under "What we collect") | **Evening or day:** if you use the switch in the top bar, your choice is kept in your browser’s local storage on your own device, so that the site opens the way you left it. It is never sent to us, and it is not a cookie. Clear your browser’s site data and it is forgotten. |
 | 3 | (a new section) | **What this site loads.** Everything on this site comes from samavik.com itself: its pages, its pictures, and the two typefaces (Cormorant Garamond and Manrope), which we host ourselves. Nothing is requested from Google Fonts or from any other third party, and the site sets no cookies. The only request your browser makes beyond fetching the pages is the one the contact form sends to us when you press Send. |
 
-Everything else on the page is word for word as before. (Today's page said nothing about fonts, because it loaded Google Fonts; that is gone, and items 2 and 3 say what the site now does.)
+**Not word for word:** the old page's other sentences are unchanged, but the page around them is new, and these words are new on it:
+
+| # | New | Where |
+|---|---|---|
+| 4 | The top bar and menu: "Services", "Work", "Process", "Founder", "Start a project", "Menu", "Close", "Evening or day", "Switch to day", "Skip to content" | every page |
+| 5 | "Privacy" (the small heading above the title), and the title set as "Privacy Policy" (the same two words as before) | head |
+| 6 | The colophon: "Founder-led. Proof over promises.", "Colophon", "Samavik L.L.C-FZ, a licensed company in the Meydan Free Zone, Dubai, UAE. Set in Cormorant Garamond and Manrope, both under the SIL Open Font Licence. This site sets no cookies and loads nothing from anywhere else.", "Pages" with the links Services, Work, Contact, Privacy, "© 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE", "Back to the top ↑" | foot |
+| 7 | The canonical address `https://samavik.com/privacy` (the old page had none) and the `noindex` kept | head of the page's source |
+
+(Today's page said nothing about fonts, because it loaded Google Fonts; that is gone, and items 2 and 3 say what the site now does. The earlier sentence in this file that everything else was word for word was wrong; this table replaces it.)
 
 ## WordPress migration (`wordpress-migration.html`)
 
@@ -61,9 +73,21 @@ Every price, percentage, duration, case-study figure and claim is kept exactly, 
 | 2 | Head, the headline | Migrate WordPress to / Next.js — faster, cheaper, / zero maintenance (set on three lines) | the same words in running lines, "Next.js" in the italic |
 | 3 | Case study | Completed Migration (a badge) | Case study · Completed Migration |
 | 4 | Footer | Projects (link to `/#projects`, which is not on the page) | Work (link to `/#work`) |
-| 5 | The six emoji icons beside the problems, the stack and the ownership cards | present | removed (they are pictures, not words; the numbers 01 to 06 stand in their place) |
+| 5 | The top bar and menu: "The Problem", "Pricing", "Results", "FAQ", "Free Audit" (the same words as before), plus "Menu", "Close", "Evening or day", "Switch to day", "Skip to content" | every page |
+| 6 | New small words: the label "Free audit" above "Start with a free audit"; the cost table's name for assistive technology, "Monthly cost, WordPress against Next.js" (not shown on screen); "Before:" and "After:" spoken before each case-study figure (not shown on screen); on a phone the table reads as stacked rows with the column names "WordPress" and "Next.js (New)" repeated beside each figure | page |
+| 7 | The colophon, as on the privacy page (no. 6 there), and the footer line "© 2026 Samavik L.L.C-FZ. Meydan Free Zone, Dubai, UAE." now reads "© 2026 Samavik L.L.C-FZ · Meydan Free Zone, Dubai, UAE" | foot |
+| 8 | The share-card tags: `og:image`, `og:site_name`, `twitter:card` "summary_large_image" and `twitter:image` added (the title and description words are unchanged) | head of the page's source |
+| 9 | The six emoji icons beside the problems, the stack and the ownership cards | present | removed (they are pictures, not words; the numbers 01 to 06 stand in their place) |
 
 Claims on this page that I kept as they are but that are the owner's to stand behind: "used by Netflix, Nike, TikTok, and thousands of others"; "WordPress is the #1 target for hackers"; "The #1 cause of WordPress downtime isn't hacking"; the case study's figures (£300/mo to £20/mo, Lighthouse ~55 to 95+, TTFB ~1,200ms to <100ms, 12+ plugins to 0); "90%", "<1s", "95+", "50-80%" in the hero and cards. I have not checked any of them.
+
+## 404 page (`404.html`, new)
+
+Title "Not here — Samavik"; "404"; "Not here."; "The page you asked for is not here, or it has moved."; the key "Back to samavik.com". Not on today's site (which shows Vercel's plain default).
+
+## Files with words in them (new)
+
+`robots.txt` (allow all; the sitemap's address) and `sitemap.xml` (the three clean addresses: `/`, `/wordpress-migration`, `/privacy`). No page words.
 
 ## Proposed additions, not shown
 

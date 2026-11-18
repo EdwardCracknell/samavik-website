@@ -10,6 +10,6 @@ http.createServer((req, res) => {
   if (raw.endsWith('.html') && raw !== '/404.html') { res.writeHead(308, { Location: p.slice(0, -5).replace(/^\/index$/, '/') }); return res.end(); } // cleanUrls
   let f = path.join(root, p); if (!fs.existsSync(f) && fs.existsSync(f + '.html')) f += '.html';
   const headers = Object.assign({}, ...rules.filter((r) => r.re.test(p)).map((r) => r.headers));
-  if (!f.startsWith(root) || !fs.existsSync(f) || fs.statSync(f).isDirectory() || f.includes('/tools/') || f.includes('/node_modules/')) { const nf = path.join(root, '404.html'); res.writeHead(404, { ...headers, 'Content-Type': 'text/html; charset=utf-8' }); return res.end(fs.existsSync(nf) ? fs.readFileSync(nf) : 'Not found'); }
+  if (!f.startsWith(root) || !fs.existsSync(f) || fs.statSync(f).isDirectory() || (f.includes('/tools/') && !f.endsWith('/tools/share.html')) || f.includes('/node_modules/')) { const nf = path.join(root, '404.html'); res.writeHead(404, { ...headers, 'Content-Type': 'text/html; charset=utf-8' }); return res.end(fs.existsSync(nf) ? fs.readFileSync(nf) : 'Not found'); }
   res.writeHead(200, { ...headers, 'Content-Type': types[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res);
 }).listen(4210, () => console.log('http://localhost:4210'));

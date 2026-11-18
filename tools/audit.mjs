@@ -1,7 +1,7 @@
 // The checks behind REPORT.md: axe (serious and critical), 320 px overflow, console errors and CSP violations, the request list, the keyboard walk.
 import { chromium } from 'playwright'; import fs from 'node:fs'; import path from 'node:path';
 const axeSrc = fs.readFileSync(path.resolve(new URL('./node_modules/axe-core/axe.min.js', import.meta.url).pathname), 'utf8');
-const base = process.argv[2] || 'http://localhost:4210'; const pages = ['/', '/privacy', '/wordpress-migration'];
+const base = process.argv[2] || 'http://localhost:4210'; const pages = ['/', '/privacy', '/wordpress-migration', '/nope'];
 const b = await chromium.launch(); const out = [];
 for (const pg of pages) for (const mode of ['evening', 'day']) for (const w of [1440, 390, 320]) {
   const ctx = await b.newContext({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' });
