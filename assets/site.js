@@ -34,7 +34,14 @@
       if (open) { var first = nav.querySelector('a'); if (first) first.focus(); } else if (giveBack) menuBtn.focus();
     };
     menuBtn.addEventListener('click', function () { setMenu(!isOpen(), true); });
-    nav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) setMenu(false, false); });
+    nav.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a'); if (!a) return;
+      setMenu(false, false);
+      /* after a jump, focus goes to the destination's heading, so a keyboard or screen-reader user carries on from there */
+      var id = (a.getAttribute('href') || '').split('#')[1], t = id && document.getElementById(id);
+      var h = t && (t.querySelector('h1, h2') || t);
+      if (h) { if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1'); setTimeout(function () { h.focus({ preventScroll: true }); }, 60); }
+    });
     var rowMode = nav.querySelector('.mode-row'); if (rowMode && modeBtn) rowMode.addEventListener('click', function () { modeBtn.click(); });
     var wide = window.matchMedia ? window.matchMedia('(min-width: 981px)') : null;
     if (wide && wide.addEventListener) wide.addEventListener('change', function (e) { if (e.matches && isOpen()) setMenu(false, false); });

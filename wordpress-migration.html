@@ -13,10 +13,11 @@
     (function(){var d=document.documentElement;d.className='js';try{if(localStorage.getItem('samavik-mode')==='day'){d.setAttribute('data-theme','day');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content','#f6f5f2');m=document.querySelector('meta[name=color-scheme]');if(m)m.setAttribute('content','light');}}catch(e){}})();
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-normal.a9ff7df6.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-latin-400-italic.effe3ef0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.a30ddcd3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/site.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Samavik">
@@ -67,10 +68,10 @@
 
   <main id="main">
     <section class="head wp-hero" aria-labelledby="h-title">
-      <div class="art art-field" aria-hidden="true"></div>
+      <div class="art-box" aria-hidden="true"><div class="art art-field"></div></div>
       <div class="wrap">
         <p class="eyebrow">Service · WordPress to Next.js Migration</p>
-        <h1 id="h-title">Migrate WordPress to <em>Next.js</em> &mdash; faster, cheaper, zero maintenance</h1>
+        <h1 id="h-title">Migrate WordPress <span class="nw">to <em>Next.js</em>&nbsp;&mdash;</span> faster, cheaper, zero&nbsp;maintenance</h1>
         <p class="lede">Your WordPress site costs too much, loads too slowly, and needs constant maintenance. We migrate it to a modern stack that cuts hosting 90%, loads in under a second, and requires zero maintenance.</p>
         <div class="head-acts">
           <a class="key" href="mailto:edward@samavik.com?subject=Free%20WordPress%20Audit&amp;body=Hi%2C%0A%0AMy%20WordPress%20site%20is%3A%20%5Byour%20URL%5D%0A%0AI'd%20like%20a%20free%20audit.%0A%0AThanks">Get a Free Site Audit</a>
@@ -89,7 +90,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">The Problem</p>
-          <h2 class="title" id="problem-t">WordPress is costing you <em>more than you think</em></h2>
+          <h2 class="title" id="problem-t">WordPress is costing you <em>more than you&nbsp;think</em></h2>
           <p class="lede sub">It's not just hosting. It's the plugins, the security patches, the updates that break things, and the developer time to keep it all running.</p>
         </div>
         <ul class="ruled cols-3">
@@ -107,7 +108,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">The Numbers</p>
-          <h2 class="title" id="costs-t">Side-by-side <em>cost comparison</em></h2>
+          <h2 class="title" id="costs-t"><span class="nw">Side-by-side</span> <em>cost&nbsp;comparison</em></h2>
           <p class="lede sub">Real numbers. No hidden fees. The new stack pays for itself from month one.</p>
         </div>
         <div class="table-wrap"><div class="in" tabindex="0" role="region" aria-label="Monthly cost comparison table; scrolls sideways on a narrow screen">
@@ -115,15 +116,15 @@
             <caption class="sr">Monthly cost, WordPress against Next.js</caption>
             <thead><tr><th scope="col">Item</th><th scope="col">WordPress</th><th scope="col" class="hl">Next.js (New)</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Hosting server</th><td>&pound;11&ndash;44/mo</td><td class="hl new">&pound;0 (eliminated)</td></tr>
-              <tr><th scope="row">Vercel Pro</th><td>&mdash;</td><td class="hl new">&pound;20/mo</td></tr>
-              <tr><th scope="row">CMS (Builder.io)</th><td>&mdash;</td><td class="hl new">&pound;0 (free plan)</td></tr>
-              <tr><th scope="row">DNS management</th><td>&pound;1&ndash;5/mo</td><td class="hl new">&pound;0 (Cloudflare free)</td></tr>
-              <tr><th scope="row">Premium theme licence</th><td>&pound;5&ndash;15/mo</td><td class="hl new">&pound;0 (custom-built)</td></tr>
-              <tr><th scope="row">Plugin licences</th><td>&pound;15&ndash;50/mo</td><td class="hl new">&pound;0 (no plugins)</td></tr>
-              <tr><th scope="row">Ongoing maintenance</th><td>&pound;50&ndash;200/mo</td><td class="hl new">&pound;0 (no WP to maintain)</td></tr>
+              <tr><th scope="row">Hosting server</th><td data-l="WordPress">&pound;11&ndash;44/mo</td><td class="hl new" data-l="Next.js (New)">&pound;0 (eliminated)</td></tr>
+              <tr><th scope="row">Vercel Pro</th><td data-l="WordPress">&mdash;</td><td class="hl new" data-l="Next.js (New)">&pound;20/mo</td></tr>
+              <tr><th scope="row">CMS (Builder.io)</th><td data-l="WordPress">&mdash;</td><td class="hl new" data-l="Next.js (New)">&pound;0 (free plan)</td></tr>
+              <tr><th scope="row">DNS management</th><td data-l="WordPress">&pound;1&ndash;5/mo</td><td class="hl new" data-l="Next.js (New)">&pound;0 (Cloudflare free)</td></tr>
+              <tr><th scope="row">Premium theme licence</th><td data-l="WordPress">&pound;5&ndash;15/mo</td><td class="hl new" data-l="Next.js (New)">&pound;0 (custom-built)</td></tr>
+              <tr><th scope="row">Plugin licences</th><td data-l="WordPress">&pound;15&ndash;50/mo</td><td class="hl new" data-l="Next.js (New)">&pound;0 (no plugins)</td></tr>
+              <tr><th scope="row">Ongoing maintenance</th><td data-l="WordPress">&pound;50&ndash;200/mo</td><td class="hl new" data-l="Next.js (New)">&pound;0 (no WP to maintain)</td></tr>
             </tbody>
-            <tfoot><tr><th scope="row">Total Monthly</th><td>&pound;83&ndash;314/mo</td><td class="hl">&pound;20/mo</td></tr></tfoot>
+            <tfoot><tr><th scope="row">Total Monthly</th><td data-l="WordPress">&pound;83&ndash;314/mo</td><td class="hl" data-l="Next.js (New)">&pound;20/mo</td></tr></tfoot>
           </table>
         </div></div>
         <div class="saving"><p class="fig">&pound;756 &ndash; &pound;3,500+</p><p class="label">Annual savings &mdash; recurring every year</p></div>
@@ -134,7 +135,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">How It Works</p>
-          <h2 class="title" id="process-t">Zero-downtime migration <em>in 5 steps</em></h2>
+          <h2 class="title" id="process-t">Zero-downtime migration <em>in 5&nbsp;steps</em></h2>
           <p class="lede sub">Your WordPress site stays live throughout. Nothing changes until you've approved the new site.</p>
         </div>
         <ol class="steps">
@@ -151,7 +152,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">Proof</p>
-          <h2 class="title" id="case-study-t">Real migration, <em>real results</em></h2>
+          <h2 class="title" id="case-study-t">Real migration, <em>real&nbsp;results</em></h2>
           <p class="lede sub">WordPress Multisite with 4 international domains migrated to Next.js on Vercel.</p>
         </div>
         <article class="plate" aria-labelledby="cs-t">
@@ -175,7 +176,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">The New Stack</p>
-          <h2 class="title" id="stack-t">What replaces <em>WordPress</em></h2>
+          <h2 class="title" id="stack-t">What replaces&nbsp;<em>WordPress</em></h2>
           <p class="lede sub">Modern, proven technologies used by Netflix, Nike, TikTok, and thousands of others.</p>
         </div>
         <ul class="ruled cols-3">
@@ -193,7 +194,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">Ownership</p>
-          <h2 class="title" id="ownership-t">You keep <em>full control</em></h2>
+          <h2 class="title" id="ownership-t">You keep <em>full&nbsp;control</em></h2>
           <p class="lede sub">No vendor lock-in. No held-hostage code. Everything belongs to your business.</p>
         </div>
         <ul class="ruled">
@@ -209,7 +210,7 @@
       <div class="wrap arrive">
         <div class="sec-head">
           <p class="eyebrow">FAQ</p>
-          <h2 class="title" id="faq-t">Common <em>questions</em></h2>
+          <h2 class="title" id="faq-t">Common&nbsp;<em>questions</em></h2>
         </div>
         <ul class="ruled">
           <li><h3>Will my team still be able to edit the website?</h3><p>Yes. Builder.io provides a visual drag-and-drop editor that works much like WordPress. Your team can edit text, swap images, create posts, and publish &mdash; no code needed. Training included.</p></li>
