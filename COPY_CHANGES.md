@@ -89,11 +89,27 @@ Title "Not here — Samavik"; "404"; "Not here."; "The page you asked for is not
 
 `robots.txt` (allow all; the sitemap's address) and `sitemap.xml` (the three clean addresses: `/`, `/wordpress-migration`, `/privacy`). No page words.
 
+## Worded to the company's licence (18 Nov 2026, branch `copy/ppgdrone-aviation`)
+
+Asked for by the owner: the company is licensed for software development and consultancy (and sport coaching), so nothing on the site should say it builds, sells or operates an aircraft.
+
+| # | Where | Old | New |
+|---|---|---|---|
+| 1 | PPGDrone, the standing | R&D · Patent filed | R&D · In research |
+| 2 | PPGDrone, the italic | World-first dual-mode aircraft | Flight software for a drone-assisted paramotor |
+| 3 | PPGDrone, the description | Drone-assisted paramotor for wingsuit BASE logistics: hardware, flight systems and software. The lab project that shows range beyond the browser. | Research into flight-control and autonomy software for a drone-assisted paramotor frame, for wingsuit BASE logistics. The airframe is the founder’s own patent-pending project; Samavik’s part is the software. The lab project that shows range beyond the browser. |
+| 4 | PPGDrone, the small rows | Platforms: Hardware · Covers: Flight control, EASA Open A3 | Scope: Software · Covers: Flight control, Autonomy |
+| 5 | PPGDrone, the number | No. 06 | No. 07 (DogSpot is now No. 06) |
+| 6 | Work, a new plate (No. 05) | none | **Samavik Aviation** · Own product · In development · "Software for pilots, clubs and owner groups" · "A pilot’s logbook, licences and training in one record, with workspaces for flying clubs, drop zones and groups that own an aircraft together. Samavik’s part is the software." · Platforms: Web, iOS · Stack: Next.js, Rails, Postgres, React Native. Picture: a logbook page from the product's demonstration (fictional data), captioned "A pilot’s logbook · demonstration data · Captured 18 Nov 2026". No link (the product is not open to the public). |
+| 7 | Contact, the CV line | Hiring or staffing a build? | Need a senior engineer on a build? (the company delivers the work under contract; it does not supply staff) |
+
+Removed claims: "World-first", "aircraft", "hardware", "EASA Open A3", and "Patent filed" as the company's standing (the patent applications are the founder's own, which the description now says).
+
 ## Proposed additions, not shown
 
 These are not on any page. Say yes to any and I add it.
 
 1. **A promise before sending:** "Replies within one working day." as the note beside the Send key. Today's site says this only after a message is sent ("you'll hear back within one working day", kept as no. 23).
 2. **A line about hosting on the privacy page:** "The site is hosted by Vercel. Like any web host, it keeps routine server logs (for example, the address of the device that asked for a page) for the security and running of the service." True of any such host, but today's page does not say it and I cannot confirm Vercel's settings for you; the lawyer may want it.
-3. **The aviation platform's plate** in the work list: prepared in a comment in `index.html`, marked "NOT SHOWN".
+3. ~~The aviation platform's plate~~: now shown as No. 05 (see "Worded to the company's licence" above).
 4. **A link from the home page to the WordPress migration page** (today none exists; the page is reached by its address only).

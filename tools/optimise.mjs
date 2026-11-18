@@ -2,7 +2,7 @@
 // Run: node tools/optimise.mjs <captures-folder>   (captures made by tools/capture.mjs)
 import sharp from 'sharp'; import fs from 'node:fs';
 const src = process.argv[2]; const out = new URL('../assets/work/', import.meta.url).pathname; fs.mkdirSync(out, { recursive: true });
-for (const k of ['ltbj', 'cutaway', 'edcracknell']) for (const w of [640, 1200]) {
+for (const k of ['ltbj', 'cutaway', 'edcracknell', 'aviation'].filter((k) => fs.existsSync(`${src}/${k}.png`))) for (const w of [640, 1200]) {
   const base = () => sharp(`${src}/${k}.png`).resize(w, Math.round(w * 0.625), { fit: 'cover' });
   await base().avif({ quality: 46, effort: 6 }).toFile(`${out}/${k}-${w}.avif`);
   await base().webp({ quality: 68, effort: 6 }).toFile(`${out}/${k}-${w}.webp`);
