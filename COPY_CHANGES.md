@@ -105,6 +105,19 @@ Asked for by the owner: the company is licensed for software development and con
 
 Removed claims: "World-first", "aircraft", "hardware", "EASA Open A3", and "Patent filed" as the company's standing (the patent applications are the founder's own, which the description now says).
 
+## The product's name (19 Nov 2026, branch `fix/product-name`)
+
+The owner decided on 7 Nov 2026 that the product is called "Samavik", not "Samavik Aviation". The app and the phone app have said "Samavik" since then; plate No. 05 did not, which was an error when the plate was added. "Samavik Aviation" also reads as an aviation company, and the company's part is the software.
+
+| # | Where | Old | New |
+|---|---|---|---|
+| 1 | Plate No. 05, the title | Samavik Aviation | Samavik |
+| 2 | Plate No. 05, the picture's description for screen readers | A pilot’s logbook page in Samavik Aviation: … | A pilot’s logbook page in the Samavik app: … |
+
+| 3 | Plate No. 05, a link under the facts (20 Nov 2026, at the owner's request: "make sure that the website clicks through to the app login page") | none | Sign in at app.samavik.com → (opens `https://app.samavik.com/login` in a new tab, as the other plates' links do) |
+
+Nothing else on the plate changed. The link is to the sign-in page for people who already have an account; the plate still says "In development" and offers no sign-up.
+
 ## Proposed additions, not shown
 
 These are not on any page. Say yes to any and I add it.
