@@ -17,3 +17,12 @@ if (gs) for (const k of ['gosayhi-2', 'gosayhi-7']) {
   await base().webp({ quality: 70, effort: 6 }).toFile(`${out}/${k}.webp`);
   await base().jpeg({ quality: 72, mozjpeg: true }).toFile(`${out}/${k}.jpg`);
 }
+
+// TheDogSpot: two of its public App Store screenshots (tools/fetch-thedogspot.mjs), in the same frame as GoSayHi's.
+const td = process.argv[4];
+if (td) for (const k of ['thedogspot-1', 'thedogspot-3']) {
+  const base = () => sharp(`${td}/${k}.jpg`).resize(380, 823, { fit: 'cover' });
+  await base().avif({ quality: 50, effort: 6 }).toFile(`${out}/${k}.avif`);
+  await base().webp({ quality: 70, effort: 6 }).toFile(`${out}/${k}.webp`);
+  await base().jpeg({ quality: 72, mozjpeg: true }).toFile(`${out}/${k}.jpg`);
+}
