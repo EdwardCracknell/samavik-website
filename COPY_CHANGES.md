@@ -118,6 +118,21 @@ The owner decided on 7 Nov 2026 that the product is called "Samavik", not "Samav
 
 Nothing else on the plate changed. The link is to the sign-in page for people who already have an account; the plate still says "In development" and offers no sign-up.
 
+## Plate No. 06 is TheDogSpot, shown with its screens and its two stores (21 Nov 2026)
+
+At the owner's request: "dogspot is called thedogspot for both ios and android.. please fix the website to show it off and display it". The app's name on the App Store is TheDogSpot. The plate moves from the small row to a wide plate with two of the app's own public App Store screenshots (stored in the repository, never hot-linked) and a link to each store. A stray `-->` that showed under the small plates, left from an old comment, is removed with its orphan closing tag.
+
+| # | Where | Old | New |
+|---|---|---|---|
+| 4 | Plate No. 06, the title | DogSpot | TheDogSpot |
+| 5 | Plate No. 06, the standing | Live in production | Live on App Store and Google Play |
+| 6 | Plate No. 06, the line under the title | Social competition app | A dog-spotting game to play with friends |
+| 7 | Plate No. 06, the description | Mobile social game with real users: accounts, feeds, scoring, moderation and releases. Concept to production, built and operated end-to-end. | Spot a dog, take its picture, score the points. Friends play in private games and on a live leaderboard. A mobile social game with real users: accounts, feeds, scoring, moderation and releases, built and operated end-to-end. |
+| 8 | Plate No. 06, the picture | none | Two screens of the app (starting a new game; five points on the board), captioned "TheDogSpot on the App Store · Captured 21 Nov 2026", each with a description for screen readers |
+| 9 | Plate No. 06, links under the facts | none | Download on the App Store → and Get it on Google Play → (each opens the app's store page in a new tab) |
+
+The first two sentences of the description say what the app's own store page says (spotting dogs, photographs, points, games with friends, a leaderboard). Nothing else on the page changed in wording. With one plate left in the small row, No. 07 now spans it.
+
 ## Proposed additions, not shown
 
 These are not on any page. Say yes to any and I add it.

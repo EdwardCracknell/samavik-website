@@ -299,7 +299,7 @@ html:not(.js) .nav-end { display: none; }
 .specs dt { font-size: 0.6875rem; font-weight: 600; letter-spacing: var(--ot-track-label); text-transform: uppercase; color: var(--ot-ink-2); }
 .specs dd { font-size: 0.875rem; color: var(--ot-ink-2); }
 .specs dd i { font-style: normal; color: var(--ot-bronze-text); margin: 0 0.45em; }
-.plate .visit { margin-top: auto; padding-top: 26px; }
+.plate .visit { margin-top: auto; padding-top: 26px; display: flex; flex-wrap: wrap; column-gap: 28px; row-gap: 0; }
 .plate .visit a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1rem; }
 
 .plates { display: grid; gap: clamp(20px, 2.4vw, 32px); }
@@ -316,6 +316,8 @@ html:not(.js) .nav-end { display: none; }
 .plates-small { grid-template-columns: repeat(2, 1fr); margin-top: clamp(20px, 2.4vw, 32px); align-items: start; }
 /* The compact plates follow the wide ones: number and standing on one line, the name, the descriptor in the italic. Rows are shared in each pair (subgrid), so tops and rules align. */
 .plate-small .specs { margin-top: 26px; }
+.plates-small .plate:only-child { grid-column: 1 / -1; }
+.plates-small .plate:only-child .desc { max-width: 62ch; }
 @supports (grid-template-rows: subgrid) {
   .plates-small .plate { display: grid; grid-row: span 5; grid-template-rows: subgrid; align-self: stretch; }
   .plates-small .plate > .in { display: grid; grid-row: 1 / -1; grid-template-rows: subgrid; align-content: start; }
